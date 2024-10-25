@@ -1,0 +1,722 @@
+[
+    {
+        "name": "Apple",
+        "image_url": "https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2023/11/apple-diet-1701057774.jpg",
+        "calories": 52,
+        "protein": 0.3,
+        "vitamins": {
+            "vitamin_C": "4.6 mg",
+            "vitamin_A": "54 IU"
+        },
+        "minerals": {
+            "calcium": "6 mg",
+            "iron": "0.12 mg"
+        },
+        "description": "A sweet and crisp fruit that is rich in fiber and vitamin C, apples are a popular choice for snacks and desserts."
+    },
+    {
+        "name": "Banana",
+        "image_url": "https://www.shutterstock.com/image-photo/banana-bunch-fruit-clipping-path-600nw-2474380581.jpg",
+        "calories": 89,
+        "protein": 1.1,
+        "vitamins": {
+            "vitamin_C": "8.7 mg",
+            "vitamin_B6": "0.4 mg"
+        },
+        "minerals": {
+            "calcium": "5 mg",
+            "iron": "0.26 mg"
+        },
+        "description": "Bananas are a nutritious fruit known for their high potassium content, perfect for a quick energy boost."
+    },
+    {
+        "name": "Carrot",
+        "image_url": "https://organicbazar.net/cdn/shop/products/Untitled-design-42.jpg?v=1694167753",
+        "calories": 41,
+        "protein": 0.9,
+        "vitamins": {
+            "vitamin_C": "5.9 mg",
+            "vitamin_A": "835 IU"
+        },
+        "minerals": {
+            "calcium": "33 mg",
+            "iron": "0.6 mg"
+        },
+        "description": "Crunchy and sweet, carrots are rich in beta-carotene, fiber, and various antioxidants."
+    },
+    {
+        "name": "Tomato",
+        "image_url": "https://t4.ftcdn.net/jpg/03/27/96/23/360_F_327962332_6mb5jQLnTOjhYeXML7v45Hc5eED2GYOD.jpg",
+        "calories": 18,
+        "protein": 0.9,
+        "vitamins": {
+            "vitamin_C": "13.7 mg",
+            "vitamin_K": "7.9 mcg"
+        },
+        "minerals": {
+            "calcium": "18 mg",
+            "iron": "0.3 mg"
+        },
+        "description": "Juicy and versatile, tomatoes are packed with vitamins and are a key ingredient in many dishes."
+    },
+    {
+        "name": "Spinach",
+        "image_url": "https://images.moneycontrol.com/static-mcnews/2023/07/Health-benefits-of-spinach.jpg?impolicy=website&width=1600&height=900",
+        "calories": 23,
+        "protein": 2.9,
+        "vitamins": {
+            "vitamin_C": "28.1 mg",
+            "vitamin_K": "483 mcg"
+        },
+        "minerals": {
+            "calcium": "99 mg",
+            "iron": "2.7 mg"
+        },
+        "description": "Spinach is a leafy green vegetable rich in iron, vitamins, and antioxidants, great for salads and smoothies."
+    },
+    {
+        "name": "Strawberry",
+        "image_url": "https://freerangestock.com/sample/38178/starberries-in-a-bowl.jpg",
+        "calories": 32,
+        "protein": 0.7,
+        "vitamins": {
+            "vitamin_C": "58.8 mg",
+            "vitamin_A": "12 IU"
+        },
+        "minerals": {
+            "calcium": "16 mg",
+            "iron": "0.41 mg"
+        },
+        "description": "Sweet and juicy, strawberries are packed with antioxidants and vitamin C, perfect for desserts or snacking."
+    },
+    {
+        "name": "Potato",
+        "image_url": "https://www.jiomart.com/images/product/original/590003516/potato-1-kg-product-images-o590003516-p590003516-0-202408070949.jpg?im=Resize=(1000,1000)",
+        "calories": 77,
+        "protein": 2.0,
+        "vitamins": {
+            "vitamin_C": "19.7 mg",
+            "vitamin_B6": "0.3 mg"
+        },
+        "minerals": {
+            "calcium": "12 mg",
+            "iron": "0.81 mg"
+        },
+        "description": "Potatoes are versatile root vegetables that can be prepared in various ways and are a good source of carbohydrates."
+    },
+    {
+        "name": "Broccoli",
+        "image_url": "https://domf5oio6qrcr.cloudfront.net/medialibrary/5390/h1218g16207258089583.jpg",
+        "calories": 55,
+        "protein": 3.7,
+        "vitamins": {
+            "vitamin_C": "89.2 mg",
+            "vitamin_K": "101.6 mcg"
+        },
+        "minerals": {
+            "calcium": "47 mg",
+            "iron": "0.73 mg"
+        },
+        "description": "Broccoli is a cruciferous vegetable known for its high vitamin C and fiber content, making it a great health food."
+    },
+    {
+        "name": "Cabbage",
+        "image_url": "https://example.com/images/cabbage.jpg",
+        "calories": 25,
+        "protein": 1.3,
+        "vitamins": {
+            "vitamin_C": "36.6 mg",
+            "vitamin_K": "76 mcg"
+        },
+        "minerals": {
+            "calcium": "40 mg",
+            "iron": "0.47 mg"
+        },
+        "description": "Cabbage is a leafy green or purple vegetable that is low in calories and rich in vitamins, often used in salads and soups."
+    },
+    {
+        "name": "Orange",
+        "image_url": "https://example.com/images/orange.jpg",
+        "calories": 47,
+        "protein": 0.9,
+        "vitamins": {
+            "vitamin_C": "53.2 mg",
+            "vitamin_A": "225 IU"
+        },
+        "minerals": {
+            "calcium": "40 mg",
+            "iron": "0.1 mg"
+        },
+        "description": "Oranges are citrus fruits packed with vitamin C, perfect for boosting the immune system and enhancing flavor."
+    },
+    {
+        "name": "Peas",
+        "image_url": "https://example.com/images/peas.jpg",
+        "calories": 81,
+        "protein": 5.4,
+        "vitamins": {
+            "vitamin_C": "40 mg",
+            "vitamin_K": "24.8 mcg"
+        },
+        "minerals": {
+            "calcium": "27 mg",
+            "iron": "1.5 mg"
+        },
+        "description": "Peas are small, round vegetables that are high in protein and fiber, making them a nutritious addition to any meal."
+    },
+    {
+        "name": "Grapes",
+        "image_url": "https://example.com/images/grapes.jpg",
+        "calories": 69,
+        "protein": 0.7,
+        "vitamins": {
+            "vitamin_C": "10.8 mg",
+            "vitamin_K": "14.6 mcg"
+        },
+        "minerals": {
+            "calcium": "18 mg",
+            "iron": "0.36 mg"
+        },
+        "description": "Grapes are sweet, juicy fruits that are a good source of antioxidants and can be enjoyed fresh or dried as raisins."
+    },
+    {
+        "name": "Lettuce",
+        "image_url": "https://example.com/images/lettuce.jpg",
+        "calories": 15,
+        "protein": 1.4,
+        "vitamins": {
+            "vitamin_C": "9.2 mg",
+            "vitamin_A": "740 IU"
+        },
+        "minerals": {
+            "calcium": "36 mg",
+            "iron": "0.41 mg"
+        },
+        "description": "Lettuce is a leafy green vegetable commonly used in salads, known for its high water content and low calories."
+    },
+    {
+        "name": "Bell Pepper",
+        "image_url": "https://example.com/images/bell-pepper.jpg",
+        "calories": 31,
+        "protein": 1.0,
+        "vitamins": {
+            "vitamin_C": "80.4 mg",
+            "vitamin_A": "370 IU"
+        },
+        "minerals": {
+            "calcium": "10 mg",
+            "iron": "0.43 mg"
+        },
+        "description": "Bell peppers are colorful vegetables that are high in vitamin C and antioxidants, adding flavor and crunch to dishes."
+    },
+    {
+        "name": "Zucchini",
+        "image_url": "https://example.com/images/zucchini.jpg",
+        "calories": 17,
+        "protein": 1.2,
+        "vitamins": {
+            "vitamin_C": "17.9 mg",
+            "vitamin_A": "200 IU"
+        },
+        "minerals": {
+            "calcium": "18 mg",
+            "iron": "0.37 mg"
+        },
+        "description": "Zucchini is a versatile summer squash that can be grilled, sautéed, or added to baked goods for added moisture."
+    },
+    {
+        "name": "Pineapple",
+        "image_url": "https://example.com/images/pineapple.jpg",
+        "calories": 50,
+        "protein": 0.5,
+        "vitamins": {
+            "vitamin_C": "47.8 mg",
+            "vitamin_B6": "0.11 mg"
+        },
+        "minerals": {
+            "calcium": "18 mg",
+            "iron": "0.28 mg"
+        },
+        "description": "Pineapple is a tropical fruit that is sweet and tangy, known for its digestive enzymes and high vitamin C content."
+    },
+    {
+        "name": "Cucumber",
+        "image_url": "https://example.com/images/cucumber.jpg",
+        "calories": 16,
+        "protein": 0.7,
+        "vitamins": {
+            "vitamin_C": "2.8 mg",
+            "vitamin_K": "16.4 mcg"
+        },
+        "minerals": {
+            "calcium": "18 mg",
+            "iron": "0.28 mg"
+        },
+        "description": "Cucumbers are refreshing and hydrating vegetables, low in calories and great for salads or pickling."
+    },
+    {
+        "name": "Mango",
+        "image_url": "https://example.com/images/mango.jpg",
+        "calories": 60,
+        "protein": 0.8,
+        "vitamins": {
+            "vitamin_C": "36.4 mg",
+            "vitamin_A": "1082 IU"
+        },
+        "minerals": {
+            "calcium": "18 mg",
+            "iron": "0.16 mg"
+        },
+        "description": "Mangoes are juicy and sweet tropical fruits rich in vitamin C and fiber, often enjoyed fresh or in smoothies."
+    },
+    {
+        "name": "Blueberry",
+        "image_url": "https://example.com/images/blueberry.jpg",
+        "calories": 57,
+        "protein": 0.7,
+        "vitamins": {
+            "vitamin_C": "9.7 mg",
+            "vitamin_K": "19.3 mcg"
+        },
+        "minerals": {
+            "calcium": "6 mg",
+            "iron": "0.28 mg"
+        },
+        "description": "Blueberries are small, sweet berries rich in antioxidants and vitamin C, perfect for snacking or baking."
+    },
+    {
+        "name": "Watermelon",
+        "image_url": "https://example.com/images/watermelon.jpg",
+        "calories": 30,
+        "protein": 0.6,
+        "vitamins": {
+            "vitamin_C": "8.1 mg",
+            "vitamin_A": "569 IU"
+        },
+        "minerals": {
+            "calcium": "7 mg",
+            "iron": "0.24 mg"
+        },
+        "description": "Watermelon is a juicy, hydrating fruit that is low in calories and high in vitamins A and C, making it a summer favorite."
+    },
+    {
+        "name": "Peach",
+        "image_url": "https://example.com/images/peach.jpg",
+        "calories": 39,
+        "protein": 0.9,
+        "vitamins": {
+            "vitamin_C": "6.6 mg",
+            "vitamin_A": "489 IU"
+        },
+        "minerals": {
+            "calcium": "6 mg",
+            "iron": "0.25 mg"
+        },
+        "description": "Peaches are sweet and juicy stone fruits that are high in vitamins A and C, often enjoyed fresh or in desserts."
+    },
+    {
+        "name": "Kiwi",
+        "image_url": "https://example.com/images/kiwi.jpg",
+        "calories": 61,
+        "protein": 1.1,
+        "vitamins": {
+            "vitamin_C": "92.7 mg",
+            "vitamin_K": "40.3 mcg"
+        },
+        "minerals": {
+            "calcium": "34 mg",
+            "iron": "0.31 mg"
+        },
+        "description": "Kiwis are small, green fruits that are exceptionally high in vitamin C and fiber, offering a unique tart-sweet flavor."
+    },
+    {
+        "name": "Eggplant",
+        "image_url": "https://example.com/images/eggplant.jpg",
+        "calories": 25,
+        "protein": 1.0,
+        "vitamins": {
+            "vitamin_C": "2.2 mg",
+            "vitamin_K": "3.5 mcg"
+        },
+        "minerals": {
+            "calcium": "9 mg",
+            "iron": "0.23 mg"
+        },
+        "description": "Eggplants are purple, glossy vegetables that are low in calories and high in fiber, often used in various savory dishes."
+    },
+    {
+        "name": "Avocado",
+        "image_url": "https://example.com/images/avocado.jpg",
+        "calories": 160,
+        "protein": 2.0,
+        "vitamins": {
+            "vitamin_C": "10 mg",
+            "vitamin_E": "2.07 mg"
+        },
+        "minerals": {
+            "calcium": "18 mg",
+            "iron": "0.55 mg"
+        },
+        "description": "Avocados are creamy fruits rich in healthy fats, fiber, and various vitamins, ideal for spreads and salads."
+    },
+    {
+        "name": "Pomegranate",
+        "image_url": "https://example.com/images/pomegranate.jpg",
+        "calories": 83,
+        "protein": 1.7,
+        "vitamins": {
+            "vitamin_C": "10.2 mg",
+            "vitamin_K": "16.4 mcg"
+        },
+        "minerals": {
+            "calcium": "10 mg",
+            "iron": "0.3 mg"
+        },
+        "description": "Pomegranates are round fruits with a tough skin and juicy seeds, high in antioxidants and vitamin C."
+    },
+    {
+        "name": "Cantaloupe",
+        "image_url": "https://example.com/images/cantaloupe.jpg",
+        "calories": 34,
+        "protein": 0.8,
+        "vitamins": {
+            "vitamin_C": "36.7 mg",
+            "vitamin_A": "338 IU"
+        },
+        "minerals": {
+            "calcium": "9 mg",
+            "iron": "0.21 mg"
+        },
+        "description": "Cantaloupe is a sweet and juicy melon high in vitamins A and C, perfect for refreshing summer snacks."
+    },
+    {
+        "name": "Apricot",
+        "image_url": "https://example.com/images/apricot.jpg",
+        "calories": 48,
+        "protein": 1.4,
+        "vitamins": {
+            "vitamin_C": "9 mg",
+            "vitamin_A": "1926 IU"
+        },
+        "minerals": {
+            "calcium": "13 mg",
+            "iron": "0.5 mg"
+        },
+        "description": "Apricots are small, orange fruits that are rich in vitamin A and antioxidants, often eaten fresh or dried."
+    },
+    {
+        "name": "Cauliflower",
+        "image_url": "https://example.com/images/cauliflower.jpg",
+        "calories": 25,
+        "protein": 1.9,
+        "vitamins": {
+            "vitamin_C": "48.2 mg",
+            "vitamin_K": "15.5 mcg"
+        },
+        "minerals": {
+            "calcium": "22 mg",
+            "iron": "0.42 mg"
+        },
+        "description": "Cauliflower is a versatile vegetable that can be used in a variety of dishes, known for its low calories and high fiber."
+    },
+    {
+        "name": "Radish",
+        "image_url": "https://example.com/images/radish.jpg",
+        "calories": 16,
+        "protein": 0.7,
+        "vitamins": {
+            "vitamin_C": "14.8 mg",
+            "vitamin_B6": "0.1 mg"
+        },
+        "minerals": {
+            "calcium": "25 mg",
+            "iron": "0.17 mg"
+        },
+        "description": "Radishes are crunchy, spicy root vegetables that add flavor and color to salads and dishes."
+    },
+    {
+        "name": "Garlic",
+        "image_url": "https://example.com/images/garlic.jpg",
+        "calories": 149,
+        "protein": 6.4,
+        "vitamins": {
+            "vitamin_C": "31.2 mg",
+            "vitamin_B6": "1.235 mg"
+        },
+        "minerals": {
+            "calcium": "18 mg",
+            "iron": "1.7 mg"
+        },
+        "description": "Garlic is a pungent bulb used as a spice in cooking, known for its health benefits and strong flavor."
+    },
+    {
+        "name": "Onion",
+        "image_url": "https://example.com/images/onion.jpg",
+        "calories": 40,
+        "protein": 1.1,
+        "vitamins": {
+            "vitamin_C": "7.4 mg",
+            "vitamin_B6": "0.1 mg"
+        },
+        "minerals": {
+            "calcium": "23 mg",
+            "iron": "0.21 mg"
+        },
+        "description": "Onions are aromatic vegetables that enhance the flavor of many dishes and are rich in vitamins and antioxidants."
+    },
+    {
+        "name": "Asparagus",
+        "image_url": "https://example.com/images/asparagus.jpg",
+        "calories": 20,
+        "protein": 2.2,
+        "vitamins": {
+            "vitamin_C": "5.6 mg",
+            "vitamin_K": "41.6 mcg"
+        },
+        "minerals": {
+            "calcium": "24 mg",
+            "iron": "1.1 mg"
+        },
+        "description": "Asparagus is a tender, green vegetable that is high in vitamins A, C, and K, often grilled or steamed."
+    },
+    {
+        "name": "Artichoke",
+        "image_url": "https://example.com/images/artichoke.jpg",
+        "calories": 47,
+        "protein": 4.2,
+        "vitamins": {
+            "vitamin_C": "11.7 mg",
+            "vitamin_K": "14.8 mcg"
+        },
+        "minerals": {
+            "calcium": "44 mg",
+            "iron": "0.89 mg"
+        },
+        "description": "Artichokes are unique vegetables that are high in fiber and antioxidants, often steamed or roasted."
+    },
+    {
+        "name": "Beetroot",
+        "image_url": "https://example.com/images/beetroot.jpg",
+        "calories": 43,
+        "protein": 1.6,
+        "vitamins": {
+            "vitamin_C": "4.9 mg",
+            "vitamin_B6": "0.1 mg"
+        },
+        "minerals": {
+            "calcium": "22 mg",
+            "iron": "0.35 mg"
+        },
+        "description": "Beetroots are root vegetables known for their earthy flavor and vibrant color, rich in fiber and antioxidants."
+    },
+    {
+        "name": "Chard",
+        "image_url": "https://example.com/images/chard.jpg",
+        "calories": 19,
+        "protein": 1.8,
+        "vitamins": {
+            "vitamin_C": "30 mg",
+            "vitamin_K": "830 mcg"
+        },
+        "minerals": {
+            "calcium": "51 mg",
+            "iron": "1.8 mg"
+        },
+        "description": "Chard is a leafy green vegetable with colorful stems, rich in vitamins and minerals, often used in salads or cooked dishes."
+    },
+    {
+        "name": "Raspberry",
+        "image_url": "https://example.com/images/raspberry.jpg",
+        "calories": 52,
+        "protein": 1.2,
+        "vitamins": {
+            "vitamin_C": "26.2 mg",
+            "vitamin_K": "7.8 mcg"
+        },
+        "minerals": {
+            "calcium": "25 mg",
+            "iron": "0.69 mg"
+        },
+        "description": "Raspberries are sweet and tart berries, high in fiber and antioxidants, often used in desserts and jams."
+    },
+    {
+        "name": "Blackberry",
+        "image_url": "https://example.com/images/blackberry.jpg",
+        "calories": 43,
+        "protein": 1.4,
+        "vitamins": {
+            "vitamin_C": "21 mg",
+            "vitamin_K": "19.8 mcg"
+        },
+        "minerals": {
+            "calcium": "29 mg",
+            "iron": "0.88 mg"
+        },
+        "description": "Blackberries are dark, sweet berries rich in vitamins and antioxidants, delicious in smoothies and desserts."
+    },
+    {
+        "name": "Nectarine",
+        "image_url": "https://example.com/images/nectarine.jpg",
+        "calories": 44,
+        "protein": 1.1,
+        "vitamins": {
+            "vitamin_C": "5.4 mg",
+            "vitamin_A": "489 IU"
+        },
+        "minerals": {
+            "calcium": "6 mg",
+            "iron": "0.18 mg"
+        },
+        "description": "Nectarines are smooth-skinned stone fruits, similar to peaches, high in vitamins A and C."
+    },
+    {
+        "name": "Cherries",
+        "image_url": "https://example.com/images/cherries.jpg",
+        "calories": 63,
+        "protein": 1.0,
+        "vitamins": {
+            "vitamin_C": "7 mg",
+            "vitamin_A": "64 IU"
+        },
+        "minerals": {
+            "calcium": "18 mg",
+            "iron": "0.19 mg"
+        },
+        "description": "Cherries are small, sweet or tart fruits, rich in antioxidants and vitamin C, great for snacking and desserts."
+    },
+    {
+        "name": "Pumpkin",
+        "image_url": "https://example.com/images/pumpkin.jpg",
+        "calories": 26,
+        "protein": 1.0,
+        "vitamins": {
+            "vitamin_C": "1.1 mg",
+            "vitamin_A": "851 IU"
+        },
+        "minerals": {
+            "calcium": "21 mg",
+            "iron": "0.8 mg"
+        },
+        "description": "Pumpkin is a nutrient-rich squash, high in fiber and vitamin A, often used in pies and soups."
+    },
+    {
+        "name": "Sweet Potato",
+        "image_url": "https://example.com/images/sweet-potato.jpg",
+        "calories": 86,
+        "protein": 1.6,
+        "vitamins": {
+            "vitamin_C": "2.4 mg",
+            "vitamin_A": "14187 IU"
+        },
+        "minerals": {
+            "calcium": "30 mg",
+            "iron": "0.61 mg"
+        },
+        "description": "Sweet potatoes are starchy, sweet root vegetables high in vitamin A and fiber, delicious baked or mashed."
+    },
+    {
+        "name": "Radicchio",
+        "image_url": "https://example.com/images/radicchio.jpg",
+        "calories": 23,
+        "protein": 1.4,
+        "vitamins": {
+            "vitamin_C": "9.6 mg",
+            "vitamin_K": "37 mcg"
+        },
+        "minerals": {
+            "calcium": "22 mg",
+            "iron": "0.20 mg"
+        },
+        "description": "Radicchio is a bitter leafy vegetable often used in salads, high in antioxidants and vitamins."
+    },
+    {
+        "name": "Endive",
+        "image_url": "https://example.com/images/endive.jpg",
+        "calories": 17,
+        "protein": 1.3,
+        "vitamins": {
+            "vitamin_C": "6.6 mg",
+            "vitamin_K": "231.5 mcg"
+        },
+        "minerals": {
+            "calcium": "52 mg",
+            "iron": "0.31 mg"
+        },
+        "description": "Endive is a leafy vegetable known for its slightly bitter taste, rich in vitamins and often used in salads."
+    },
+    {
+        "name": "Fennel",
+        "image_url": "https://example.com/images/fennel.jpg",
+        "calories": 31,
+        "protein": 1.2,
+        "vitamins": {
+            "vitamin_C": "12.0 mg",
+            "vitamin_K": "17.0 mcg"
+        },
+        "minerals": {
+            "calcium": "49 mg",
+            "iron": "0.73 mg"
+        },
+        "description": "Fennel is a flavorful vegetable with a licorice-like taste, high in fiber and vitamins, often used in salads."
+    },
+    {
+        "name": "Bok Choy",
+        "image_url": "https://example.com/images/bok-choy.jpg",
+        "calories": 13,
+        "protein": 1.5,
+        "vitamins": {
+            "vitamin_C": "45 mg",
+            "vitamin_K": "31 mcg"
+        },
+        "minerals": {
+            "calcium": "105 mg",
+            "iron": "0.8 mg"
+        },
+        "description": "Bok choy is a Chinese cabbage that is crunchy and mild, rich in vitamins and minerals, often used in stir-fries."
+    },
+    {
+        "name": "Kale",
+        "image_url": "https://example.com/images/kale.jpg",
+        "calories": 49,
+        "protein": 4.3,
+        "vitamins": {
+            "vitamin_C": "120 mg",
+            "vitamin_K": "704 mcg"
+        },
+        "minerals": {
+            "calcium": "150 mg",
+            "iron": "1.5 mg"
+        },
+        "description": "Kale is a dark leafy green vegetable known for its nutrient density, high in vitamins K and C, often used in salads and smoothies."
+    },
+    {
+        "name": "Mushroom",
+        "image_url": "https://example.com/images/mushroom.jpg",
+        "calories": 22,
+        "protein": 3.1,
+        "vitamins": {
+            "vitamin_C": "0.0 mg",
+            "vitamin_D": "0.0 IU"
+        },
+        "minerals": {
+            "calcium": "3 mg",
+            "iron": "0.1 mg"
+        },
+        "description": "Mushrooms are fungi that add umami flavor to dishes, low in calories and high in nutrients."
+    },
+    {
+        "name": "Zucchini",
+        "image_url": "https://example.com/images/zucchini.jpg",
+        "calories": 17,
+        "protein": 1.2,
+        "vitamins": {
+            "vitamin_C": "17.9 mg",
+            "vitamin_B6": "0.1 mg"
+        },
+        "minerals": {
+            "calcium": "18 mg",
+            "iron": "0.37 mg"
+        },
+        "description": "Zucchini is a versatile summer squash that is low in calories and high in water content, great for grilling or baking."
+    }
+]
