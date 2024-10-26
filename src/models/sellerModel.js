@@ -16,13 +16,51 @@ const sellerSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide a password"],
     },
-    shopName: {
+    contactNumber: {
         type: String,
-        required: [true, "Please provide a shop name"],
+        required: [true, "Please provide a contact number"],
+        unique: true,
     },
-    shopAddress: {
+    businessRegNumber: {
         type: String,
-        required: [true, "Please provide a shop address"],
+        required: [true, "Please provide a business registration number"],
+        unique: true,
+    },
+    taxIdNumber: {
+        type: String,
+        required: [true, "Please provide a tax ID number"],
+        unique: true,
+    },
+    regionOfOperation: {
+        type: String,
+        required: [true, "Please specify the region of operation"],
+    },
+    bankAccountDetails: {
+        accountNumber: {
+            type: String,
+            required: [true, "Please provide a bank account number"],
+        },
+        bankName: {
+            type: String,
+            required: [true, "Please provide the bank name"],
+        },
+        ifscCode: {
+            type: String,
+            required: [true, "Please provide the IFSC code"],
+        },
+    },
+    businessLicenseNumber: {
+        type: String,
+        required: [true, "Please provide a business license number"],
+        unique: true,
+    },
+    pinCode: {
+        type: String,
+        required: [true, "Please provide a pin code"],
+    },
+    passportPhoto: {
+        type: String, // URL to the uploaded image
+        required: [true, "Please upload a passport-sized photo"],
     },
     isVerified: {
         type: Boolean,
@@ -32,18 +70,20 @@ const sellerSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
-    forgotPasswordToken: {
-        type: String,
-    },
-    forgotPasswordTokenExpiry: {
+    createdAt: {
         type: Date,
+        default: Date.now,
     },
-    verifyToken: {
-        type: String,
-    },
-    verifyTokenExpiry: {
+    updatedAt: {
         type: Date,
+        default: Date.now,
     },
+});
+
+// Update timestamps on save
+sellerSchema.pre("save", function (next) {
+    this.updatedAt = Date.now();
+    next();
 });
 
 // Create the model, or use the existing one if already defined

@@ -1,51 +1,59 @@
 import React, { useState } from "react";
-import { useCart } from "@/context/CartContext"; // Import the useCart hook
+import { useCart } from "@/context/CartContext";
 import Image from "next/image";
 
 interface ItemProps {
-  image_url: string; // Change this to match the new key
+  image_url: string;
   name: string;
   description: string;
   calories: number;
   protein: number;
-  vitamins: { [key: string]: string }; // Change the type if needed
-  minerals: { [key: string]: string }; // Change the type if needed
+  price: number;               // Add price prop
+  discountedPrice: number;      // Add discounted price prop
+  vitamins: { [key: string]: string };
+  minerals: { [key: string]: string };
 }
 
 const Item: React.FC<ItemProps> = ({
-  image_url, // Use image_url here
+  image_url,
   name,
   description,
   calories,
   protein,
+  price,
+  discountedPrice,
   vitamins,
   minerals,
 }) => {
   const [amount, setAmount] = useState(1);
-  const { addToCart, addToWishlist } = useCart(); // Use the context
+  const { addToCart, addToWishlist } = useCart();
 
   const addToCartHandler = () => {
     const itemToAdd = {
       name,
-      image: image_url, // Update this to match your cart structure
+      image: image_url,
       description,
       calories,
       protein,
       amount,
+      price,
+      discountedPrice,
     };
-    addToCart(itemToAdd); // Add the item to the cart
+    addToCart(itemToAdd);
     console.log(`Added ${amount} of ${name} to cart`);
   };
 
   const addToWishlistHandler = () => {
     const itemToAddToWishlist = {
       name,
-      image: image_url, // Update this to match your wishlist structure
+      image: image_url,
       description,
       calories,
       protein,
+      price,
+      discountedPrice,
     };
-    addToWishlist(itemToAddToWishlist); // Add the item to the wishlist
+    addToWishlist(itemToAddToWishlist);
     console.log(`Added ${name} to wishlist`);
   };
 
@@ -56,6 +64,10 @@ const Item: React.FC<ItemProps> = ({
       <p>{description}</p>
       <p>Calories: {calories}</p>
       <p>Protein: {protein}g</p>
+      <p>Price: ${price ? price.toFixed(2) : "N/A"}</p> {/* Display price with fallback */}
+      <p>Discounted Price: ${discountedPrice ? discountedPrice.toFixed(2) : "N/A"}</p> {/* Display discounted price with fallback */}
+      {/* Display discounted price */}
+
       <div>
         <h4>Vitamins:</h4>
         {Object.entries(vitamins).map(([key, value]) => (

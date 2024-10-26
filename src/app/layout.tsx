@@ -25,6 +25,7 @@ import "./globals.css";
 import Header from "@/components/ui/Header";  // Adjust the import path if necessary
 import Footer from "@/components/ui/Footer";  // Adjust the import path if necessary
 import { CartProvider } from "@/context/CartContext"; // Import CartProvider
+import ChatbotIcon from "@/components/ui/chatbot";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -51,6 +52,7 @@ export default function RootLayout({
           <main className="p-4 md:p-8"> {/* Add padding for better spacing */}
             {children} {/* This is where the dynamic content will be rendered */}
           </main>
+          <ChatbotIcon/>
           <Footer />
         </CartProvider>
       </body>
