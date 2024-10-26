@@ -58,10 +58,6 @@ const sellerSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide a pin code"],
     },
-    passportPhoto: {
-        type: String, // URL to the uploaded image
-        required: [true, "Please upload a passport-sized photo"],
-    },
     isVerified: {
         type: Boolean,
         default: false,
