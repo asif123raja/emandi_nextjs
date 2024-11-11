@@ -1,6 +1,7 @@
 "use client"; // Use this directive if you're using Next.js with the App Router
 
 import Link from "next/link";
+import Image from "next/image"; // Import the Next.js Image component
 import React, { useEffect } from "react";
 import { FaApple, FaCarrot, FaBoxOpen } from "react-icons/fa"; // Import icons or use images as needed
 
@@ -122,7 +123,7 @@ const FrontPage: React.FC = () => {
           </p>
         </div>
         <div className="md:w-1/2 p-4 fade-in translate-y-8 opacity-0 transition-transform duration-500 ease-out">
-          <img src="/images/picking fruits.jpg" alt="Why Choose Us" className="w-full rounded-lg shadow-lg" />
+          <Image src="/images/picking fruits.jpg" alt="Why Choose Us" width={500} height={300} className="w-full rounded-lg shadow-lg" />
         </div>
       </div>
 
@@ -136,7 +137,7 @@ const FrontPage: React.FC = () => {
             <div className="absolute top-0 left-0 w-8 h-8 bg-white rounded-full shadow-lg transform -translate-x-4 -translate-y-4"></div>
             <div className="absolute top-0 right-0 w-8 h-8 bg-white rounded-full shadow-lg transform translate-x-4 -translate-y-4"></div>
             <h3 className="font-semibold flex justify-center items-center">{customer.name}</h3>
-            <p className="text-gray-600">"{customer.review}"</p>
+            <p className="text-gray-600">&quot;{customer.review}&quot;</p>
           </div>
         ))}
       </div>
