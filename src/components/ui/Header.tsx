@@ -283,7 +283,7 @@ const Header: React.FC = () => {
               <Link href="/updateitems" className="text-white hover:bg-teal-700 px-3 py-2 rounded-md">
                 Update Item
               </Link>
-           {(isAuthenticated|| pathname ==='/sellerProfile' || pathname === '/profile') ? (
+           {(isAuthenticated|| pathname ==='/sellerProfile' || pathname === '/createitem' || pathname === '/updateitems') ? (
               <button
                 onClick={logout}
                 className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg"
