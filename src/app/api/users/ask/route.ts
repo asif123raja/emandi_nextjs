@@ -1,34 +1,117 @@
-// src/app/api/ask/route.ts
+import { NextRequest, NextResponse } from "next/server";
+import cloudinary from "cloudinary";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import { ImageAnnotatorClient } from "@google-cloud/vision";
 
-import { NextResponse } from "next/server";
-import { analyzeImageForIngredients } from "./utils/analyzeImageForIngredients";
-import fs from "fs";
-import path from "path";
-import formidable from "formidable";
+// Configure Cloudinary
+cloudinary.v2.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
-export const config = {
-  api: { bodyParser: false },
-};
+// Initialize Google Generative AI client
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GENERATIVE_AI_KEY);
 
-export async function POST(req: Request) {
-  const form = formidable({ multiples: false });
+export async function POST(request: NextRequest) {
+  try {
+    const formData = await request.formData();
+    const image = formData.get("image") as File;
+    const question = formData.get("question") as string;
+    let imageUrl = "";
+    let foodInsights = "";
 
-  const formData = await new Promise<{ fields: any; files: any }>((resolve, reject) => {
-    form.parse(req, (err, fields, files) => {
-      if (err) reject(err);
-      else resolve({ fields, files });
-    });
-  });
+    // 1. Image Handling 
+    if (image) {
+      console.log("Image received, starting upload...");
+      const imageBuffer = Buffer.from(await image.arrayBuffer());
 
-  const question = formData.fields.question;
-  let response = "";
+      try {
+        const uploadResult = await new Promise((resolve, reject) => {
+          const cloudinaryStream = cloudinary.v2.uploader.upload_stream(
+            { resource_type: "auto" },
+            (error, result) => {
+              if (error) {
+                console.error("Cloudinary upload error:", error);
+                reject(error); 
+              } else {
+                resolve(result);
+              }
+            }
+          );
+          cloudinaryStream.end(imageBuffer);
+        });
 
-  if (formData.files.image) {
-    const imagePath = (formData.files.image as formidable.File).filepath;
-    response = await analyzeImageForIngredients(imagePath);
-  } else if (question) {
-    response = `Text-based response for: ${question}`;
+        imageUrl = (uploadResult as any).secure_url;
+        console.log("Image uploaded successfully:", imageUrl);
+
+        // 2. Image Analysis (Cloud Vision API)
+        const client = new ImageAnnotatorClient();
+        console.log("Calling Cloud Vision API..."); 
+        const [result] = await client.foodAnalysis({
+          image: { source: { imageUri: imageUrl } },
+        });
+
+        console.log("Cloud Vision response:", result); 
+
+        if (result.annotation?.foodAnnotations) {
+          foodInsights = result.annotation.foodAnnotations
+            .map((food) => food.description)
+            .join(", ");
+          console.log("Food Insights:", foodInsights);
+        } else {
+          console.log("No food annotations found in the image.");
+        }
+
+      } catch (uploadError) {
+        console.error("Error during image upload or analysis:", uploadError);
+        return NextResponse.json(
+          { error: "Error processing image." },
+          { status: 500 }
+        );
+      }
+    }
+
+    // 3. Prompt Construction
+    let prompt = "";
+    if (foodInsights) {
+      prompt = `Provide a recipe based on these ingredients: ${foodInsights}.`;
+    } else if (question) {
+      prompt = `Provide a recipe for this question: ${question}`;
+    }
+    console.log("Generated Prompt:", prompt);
+
+    // 4. Call Gemini (if prompt is available)
+    if (prompt) {
+      try {
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
+        const geminiResponse = await model.generateContent(prompt);
+
+        console.log("Gemini Response:", geminiResponse.response.text()); 
+
+        return NextResponse.json(
+          {
+            response: geminiResponse.response.text().slice(0, 10000),
+          },
+          { status: 200 }
+        );
+      } catch (geminiError) {
+        console.error("Error calling Gemini:", geminiError);
+        return NextResponse.json(
+          { error: "Error generating recipe." },
+          { status: 500 }
+        );
+      }
+    } else {
+      console.log("No prompt generated. Sending empty response.");
+      return NextResponse.json({ response: "Please provide an image or a question." }, { status: 200 }); 
+    }
+
+  } catch (error) {
+    console.error("Unexpected error processing request:", error);
+    return NextResponse.json(
+      { error: "Error processing request." },
+      { status: 500 }
+    );
   }
-
-  return NextResponse.json({ response });
 }

@@ -21,10 +21,11 @@ export const config = {
   matcher: [
     '/',
     '/profile',
+    // '/ssignup',
     '/login',
     '/signup',
     '/asignup',
-    '/ssignup',
+    
     '/verifyemail'
   ]
 }

@@ -56,7 +56,7 @@
 
 import { connect } from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
-import Seller from "@/models/sellerModel";
+import Seller from "@/models/sellersmodel";
 import Admin from "@/models/adminModel";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
