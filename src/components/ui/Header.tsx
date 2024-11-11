@@ -207,7 +207,7 @@ const Header: React.FC = () => {
       if (res.data.data) {
         
        // Update this with your API endpoint
-        setIsAuthenticated(!!res.data.data)
+        setIsAuthenticated(true)
         console.log("isauthinticated",isAuthenticated) // User is authenticated
         setIsSeller(res.data.data); // Set seller status based on API response
         console.log("isseller",res.data.data.isSeller)

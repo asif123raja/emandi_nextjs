@@ -50,7 +50,9 @@ const ItemPage: React.FC = () => {
             minerals={itemData.minerals}
             price={itemData.price} // Display price
             discountedPrice={itemData.discountedPrice} // Display discounted price
+
           />
+          1 unit means 50 kg.
           <button
             onClick={handleAddToCart}
             className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mt-4"

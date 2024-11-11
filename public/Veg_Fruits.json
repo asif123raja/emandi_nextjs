@@ -288,7 +288,7 @@
         {
             "id": "14",
             "name": "Bell Pepper",
-            "image_url": "https://example.com/images/bell-pepper.jpg",
+            "image_url": "https://nutritionfacts.org/app/uploads/2019/01/bell-peppers-food-fruits-57426.jpg",
             "calories": 31,
             "protein": 1.0,
             "vitamins": {
@@ -310,7 +310,7 @@
         {
             "id": "15",
             "name": "Zucchini",
-            "image_url": "https://example.com/images/zucchini.jpg",
+            "image_url": "https://luluindia-prod-assets.s3.ap-south-1.amazonaws.com/pims/grocery/products/8329_1.png",
             "calories": 17,
             "protein": 1.2,
             "vitamins": {
@@ -332,7 +332,7 @@
         {
             "id": "16",
             "name": "Pineapple",
-            "image_url": "https://example.com/images/pineapple.jpg",
+            "image_url": "https://images.everydayhealth.com/images/diet-nutrition/benefites-of-pinapple-alt1-1440x810.jpg",
             "calories": 50,
             "protein": 0.5,
             "vitamins": {
@@ -354,7 +354,7 @@
         {
             "id": "17",
             "name": "Cucumber",
-            "image_url": "https://example.com/images/cucumber.jpg",
+            "image_url": "https://seed2plant.in/cdn/shop/products/saladcucumberseeds.jpg?v=1603435556&width=1500",
             "calories": 16,
             "protein": 0.7,
             "vitamins": {
@@ -376,7 +376,7 @@
         {
             "id": "18",
             "name": "Mango",
-            "image_url": "https://example.com/images/mango.jpg",
+            "image_url": "https://impro.usercontent.one/appid/oneComShop/domain/myexoticfruit.com/media/myexoticfruit.com/webshopmedia/fresh-delicious-heidi-mangoes-ready-to-buy-now-from-myexoticfruit-0x2e-com-1696420454728.jpg?&withoutEnlargement&resize=1920+9999&quality=85&progressive",
             "calories": 60,
             "protein": 0.8,
             "vitamins": {
@@ -398,7 +398,7 @@
         {
             "id": "19",
             "name": "Blueberry",
-            "image_url": "https://example.com/images/blueberry.jpg",
+            "image_url": "https://www.robinage.com/wp-content/uploads/2024/03/bluebrry.jpg",
             "calories": 57,
             "protein": 0.7,
             "vitamins": {
@@ -420,7 +420,7 @@
         {
             "id": "20",
             "name": "Watermelon",
-            "image_url": "https://example.com/images/watermelon.jpg",
+            "image_url": "https://cdn.shopaccino.com/rootz/products/watermelon-3kg-866084_m.jpg?v=492",
             "calories": 30,
             "protein": 0.6,
             "vitamins": {
@@ -442,7 +442,7 @@
         {
             "id": "21",
             "name": "Peach",
-            "image_url": "https://example.com/images/peach.jpg",
+            "image_url": "https://www.spotlessfruits.com/cdn/shop/products/PeachImported-SpotlessFruitsIndia_1000x.png?v=1634193358",
             "calories": 39,
             "protein": 0.9,
             "vitamins": {
@@ -464,7 +464,7 @@
         {
             "id": "22",
             "name": "Kiwi",
-            "image_url": "https://example.com/images/kiwi.jpg",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Kiwi_%28Actinidia_chinensis%29_1_Luc_Viatour.jpg",
             "calories": 61,
             "protein": 1.1,
             "vitamins": {
@@ -486,7 +486,7 @@
         {
             "id": "23",
             "name": "Eggplant",
-            "image_url": "https://example.com/images/eggplant.jpg",
+            "image_url": "https://www.veggycation.com.au/siteassets/veggycationvegetable/eggplant.jpg",
             "calories": 25,
             "protein": 1.0,
             "vitamins": {
@@ -508,7 +508,7 @@
         {
             "id": "24",
             "name": "Avocado",
-            "image_url": "https://example.com/images/avocado.jpg",
+            "image_url": "https://blog.lexmed.com/images/librariesprovider80/blog-post-featured-images/avocadosea5afd66b7296e538033ff0000e6f23e.jpg?sfvrsn=a273930b_0",
             "calories": 160,
             "protein": 2.0,
             "vitamins": {
@@ -530,7 +530,7 @@
         {
             "id": "25",
             "name": "Pomegranate",
-            "image_url": "https://example.com/images/pomegranate.jpg",
+            "image_url": "https://aramgarhorchards.com/wp-content/uploads/2018/08/Pomegranate.jpg",
             "calories": 83,
             "protein": 1.7,
             "vitamins": {
@@ -552,7 +552,7 @@
             {
                 "id": "26",
                 "name": "Cantaloupe",
-                "image_url": "https://example.com/images/cantaloupe.jpg",
+                "image_url": "https://www.thespruceeats.com/thmb/cPgmSUeos7VD7XfpKUNTFRt7Uvo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-121800191-baf933eb16644a219767dfbed55fad7f.jpg",
                 "calories": 34,
                 "protein": 0.8,
                 "vitamins": {
@@ -574,7 +574,7 @@
             {
                 "id": "27",
                 "name": "Apricot",
-                "image_url": "https://example.com/images/apricot.jpg",
+                "image_url": "https://m.media-amazon.com/images/I/61s6Yp9zKqL._AC_UF1000,1000_QL80_.jpg",
                 "calories": 48,
                 "protein": 1.4,
                 "vitamins": {
@@ -596,7 +596,7 @@
             {
                 "id": "28",
                 "name": "Cauliflower",
-                "image_url": "https://example.com/images/cauliflower.jpg",
+                "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXo1pTXhMFZ52F1Ydkf5Qd7yrdSOrGfYMIQA&s",
                 "calories": 25,
                 "protein": 1.9,
                 "vitamins": {
@@ -618,7 +618,7 @@
             {
                 "id": "29",
                 "name": "Radish",
-                "image_url": "https://example.com/images/radish.jpg",
+                "image_url": "https://nativeindianorganics.com/wp-content/uploads/2022/11/white-radish.jpg",
                 "calories": 16,
                 "protein": 0.7,
                 "vitamins": {
@@ -640,7 +640,7 @@
             {
                 "id": "30",
                 "name": "Garlic",
-                "image_url": "https://example.com/images/garlic.jpg",
+                "image_url": "https://www.health.com/thmb/OAyZA9I1vJtRXtpNEuXlZR-qZhc=/2120x0/filters:no_upscale():max_bytes(150000):strip_icc()/Garlic-547276b9a356409eacef7284682b594a.jpg",
                 "calories": 149,
                 "protein": 6.4,
                 "vitamins": {
@@ -662,7 +662,7 @@
             {
                 "id": "31",
                 "name": "Onion",
-                "image_url": "https://example.com/images/onion.jpg",
+                "image_url": "https://www.liveorganic.co.in/cdn/shop/products/27_Onion_-_Bulk_Pack_5_Kg_6d984615-2c2d-4aee-9f2e-6c72de28b8f9_460x@2x.jpg?v=1659420705",
                 "calories": 40,
                 "protein": 1.1,
                 "vitamins": {
@@ -684,7 +684,7 @@
             {
                 "id": "32",
                 "name": "Asparagus",
-                "image_url": "https://example.com/images/asparagus.jpg",
+                "image_url": "https://www.onceuponachef.com/images/2022/04/roasted-asparagus-scaled.jpg",
                 "calories": 20,
                 "protein": 2.2,
                 "vitamins": {
@@ -706,7 +706,7 @@
             {
                 "id": "33",
                 "name": "Artichoke",
-                "image_url": "https://example.com/images/artichoke.jpg",
+                "image_url": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/artichoke-title-image-e6dfc26.jpg",
                 "calories": 47,
                 "protein": 4.2,
                 "vitamins": {
@@ -728,7 +728,7 @@
             {
                 "id": "34",
                 "name": "Beetroot",
-                "image_url": "https://example.com/images/beetroot.jpg",
+                "image_url": "https://www.fitterfly.com/blog/wp-content/uploads/2022/09/Is-Beetroot-Good-for-Diabetes-2-1200x900.webp",
                 "calories": 43,
                 "protein": 1.6,
                 "vitamins": {
@@ -750,7 +750,7 @@
             {
                 "id": "35",
                 "name": "Chard",
-                "image_url": "https://example.com/images/chard.jpg",
+                "image_url": "https://images-prod.healthline.com/hlcmsresource/images/AN_images/swiss-chard-benefits-1296x728-feature.jpg",
                 "calories": 19,
                 "protein": 1.8,
                 "vitamins": {
@@ -772,7 +772,7 @@
             {
                 "id": "36",
                 "name": "Raspberry",
-                "image_url": "https://example.com/images/raspberry.jpg",
+                "image_url": "https://m.media-amazon.com/images/I/51Iqtjp+VWL._AC_UF1000,1000_QL80_.jpg",
                 "calories": 52,
                 "protein": 1.2,
                 "vitamins": {
@@ -794,7 +794,7 @@
             {
                 "id": "37",
                 "name": "Blackberry",
-                "image_url": "https://example.com/images/blackberry.jpg",
+                "image_url": "https://www.specialfruit.com/en/thumbnail/productFull/product-1410443781/blackberries.jpg",
                 "calories": 43,
                 "protein": 1.4,
                 "vitamins": {
@@ -816,7 +816,7 @@
             {
                 "id": "38",
                 "name": "Nectarine",
-                "image_url": "https://example.com/images/nectarine.jpg",
+                "image_url": "https://www.fruitsmith.com/pub/media/catalog/product/cache/121e3c4dcffca7e7d42866fdac9b02cf/s/p/spain-nectarine.jpg",
                 "calories": 44,
                 "protein": 1.1,
                 "vitamins": {
@@ -838,7 +838,7 @@
             {
                 "id": "39",
                 "name": "Cherries",
-                "image_url": "https://example.com/images/cherries.jpg",
+                "image_url": "https://www.bigbasket.com/media/uploads/p/xxl/30000998_17-fresho-cherry.jpg",
                 "calories": 63,
                 "protein": 1.0,
                 "vitamins": {
@@ -860,7 +860,7 @@
             {
                 "id": "40",
                 "name": "Pumpkin",
-                "image_url": "https://example.com/images/pumpkin.jpg",
+                "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRshzY0w-1SH3dtyvHuRU1jPvzH_x6mi-DEOw&s",
                 "calories": 26,
                 "protein": 1.0,
                 "vitamins": {
@@ -882,7 +882,7 @@
                 {
                     "id": "41",
                     "name": "Sweet Potato",
-                    "image_url": "https://example.com/images/sweet-potato.jpg",
+                    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq5-iGkvBRMCJ3NZCcM9Y0F15ard0JZTpqzw&s",
                     "calories": 86,
                     "protein": 1.6,
                     "vitamins": {
@@ -904,7 +904,7 @@
                 {
                     "id": "42",
                     "name": "Radicchio",
-                    "image_url": "https://example.com/images/radicchio.jpg",
+                    "image_url": "https://devolas.com.au/wp-content/uploads/radicchio-chioggia.jpg",
                     "calories": 23,
                     "protein": 1.4,
                     "vitamins": {
@@ -926,7 +926,7 @@
                 {
                     "id": "43",
                     "name": "Endive",
-                    "image_url": "https://example.com/images/endive.jpg",
+                    "image_url": "https://www.thespruceeats.com/thmb/k3tBHvR6nYk_KFoKVPTZz2sd9b8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chicory-whole-and-sliced-on-marble-board-126551420-58bdd3d85f9b58af5c3bf47b.jpg",
                     "calories": 17,
                     "protein": 1.3,
                     "vitamins": {
@@ -948,7 +948,7 @@
                 {
                     "id": "44",
                     "name": "Fennel",
-                    "image_url": "https://example.com/images/fennel.jpg",
+                    "image_url": "https://images.squarespace-cdn.com/content/v1/5ec32aea37a8de7bea170760/1609968619441-EQWEE9Z4CTDU88ES4UFA/Fennel",
                     "calories": 31,
                     "protein": 1.2,
                     "vitamins": {
@@ -970,7 +970,7 @@
                 {
                     "id": "45",
                     "name": "Bok Choy",
-                    "image_url": "https://example.com/images/bok-choy.jpg",
+                    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj7biHUD4u-C712ZNnT6KLPN21y-DDKt2uFw&s",
                     "calories": 13,
                     "protein": 1.5,
                     "vitamins": {
@@ -992,7 +992,7 @@
                 {
                     "id": "46",
                     "name": "Kale",
-                    "image_url": "https://example.com/images/kale.jpg",
+                    "image_url": "https://global.dastgyr.com/cdn/shop/files/Kale1.jpg?v=1709664984",
                     "calories": 49,
                     "protein": 4.3,
                     "vitamins": {
@@ -1014,7 +1014,7 @@
                 {
                     "id": "47",
                     "name": "Mushroom",
-                    "image_url": "https://example.com/images/mushroom.jpg",
+                    "image_url": "https://m.media-amazon.com/images/I/71XMKwfQCzL.jpg",
                     "calories": 22,
                     "protein": 3.1,
                     "vitamins": {
@@ -1030,28 +1030,6 @@
                     "stock_quantity": 70,
                     "price": 80,
                     "discounted_price": 70,
-                    "currency": "INR",
-                    "is_available": true
-                },
-                {
-                    "id": "48",
-                    "name": "Zucchini",
-                    "image_url": "https://example.com/images/zucchini.jpg",
-                    "calories": 17,
-                    "protein": 1.2,
-                    "vitamins": {
-                        "vitamin_C": "17.9 mg",
-                        "vitamin_B6": "0.1 mg"
-                    },
-                    "minerals": {
-                        "calcium": "18 mg",
-                        "iron": "0.37 mg"
-                    },
-                    "description": "Zucchini is a versatile summer squash that is low in calories and high in water content, great for grilling or baking.",
-                    "category": "Vegetable",
-                    "stock_quantity": 65,
-                    "price": 35,
-                    "discounted_price": 30,
                     "currency": "INR",
                     "is_available": true
                 }
