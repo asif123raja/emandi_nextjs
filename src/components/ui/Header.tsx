@@ -201,14 +201,14 @@ const Header: React.FC = () => {
   // Function to check authentication status and seller status
   const checkAuth = async () => {
     try {
-      const res = await axios.get('/api/users/me2');
+      const res = await axios.get('/api/users/me');
        //const res2 = await axios.get('/api/users/me'); // Update this with your API endpoint
       console.log("res.data.data",res.data.data);
       if (res.data.data) {
         
        // Update this with your API endpoint
         setIsAuthenticated(true)
-        console.log("isauthinticated",isAuthenticated) // User is authenticated
+        console.log("isauthinticated hgjgfjg i am here asif",isAuthenticated) // User is authenticated
         setIsSeller(res.data.data); // Set seller status based on API response
         console.log("isseller",res.data.data.isSeller)
       } else {
@@ -275,7 +275,7 @@ const Header: React.FC = () => {
 
         {/* Render links based on authentication and seller status */}
         <div className="hidden md:flex space-x-4">
-          { isSeller ? (
+          { !isSeller ? (
             <>
               <Link href="/createitem" className="text-white hover:bg-teal-700 px-3 py-2 rounded-md">
                 Create New Item

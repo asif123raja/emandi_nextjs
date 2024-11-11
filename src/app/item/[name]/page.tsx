@@ -52,13 +52,13 @@ const ItemPage: React.FC = () => {
             discountedPrice={itemData.discountedPrice} // Display discounted price
 
           />
-          1 unit means 50 kg.
-          <button
+          {/* 1 unit means 50 kg. */}
+          {/* <button
             onClick={handleAddToCart}
             className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mt-4"
           >
             Add to Cart
-          </button>
+          </button> */}
         </>
       ) : (
         <p>Loading...</p>

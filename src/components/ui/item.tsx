@@ -64,8 +64,8 @@ const Item: React.FC<ItemProps> = ({
       <p>{description}</p>
       <p>Calories: {calories}</p>
       <p>Protein: {protein}g</p>
-      <p>Price: ${price ? price.toFixed(2) : "N/A"}</p> {/* Display price with fallback */}
-      <p>Discounted Price: ${discountedPrice ? discountedPrice.toFixed(2) : "N/A"}</p> {/* Display discounted price with fallback */}
+      <p>Price: ₹{price ? price.toFixed(2) : "N/A"}</p> {/* Display price with fallback */}
+      <p>Discounted Price: ₹{discountedPrice ? discountedPrice.toFixed(2) : "N/A"}</p> {/* Display discounted price with fallback */}
       {/* Display discounted price */}
 
       <div>
@@ -91,6 +91,9 @@ const Item: React.FC<ItemProps> = ({
           onChange={(e) => setAmount(Number(e.target.value))}
           className="border border-gray-300 rounded-md p-2 w-full"
         />
+        <div className=" text-xl">
+        1 unit means 50 kg.
+        </div>
         <button
           onClick={addToCartHandler}
           className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg mt-2 w-full"
