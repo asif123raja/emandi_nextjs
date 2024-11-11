@@ -10,6 +10,7 @@ const Signup = () => {
     email: "",
     password: "",
     username: "",
+    pincode: "", // New field for pincode
   });
 
   const [buttonDisabled, setButtonDisabled] = useState(false);
@@ -39,7 +40,7 @@ const Signup = () => {
   };
 
   useEffect(() => {
-    if (user.email && user.password && user.username) {
+    if (user.email && user.password && user.username && user.pincode) {
       setButtonDisabled(false);
     } else {
       setButtonDisabled(true);
@@ -76,6 +77,15 @@ const Signup = () => {
         value={user.password}
         onChange={(e) => setUser({ ...user, password: e.target.value })}
         placeholder="Password"
+      />
+      <label htmlFor="pincode">Pincode</label>
+      <input
+        className="p-2 border border-gray-300 rounded-md mb-4 focus:outline-none focus:border-gray-600 text-black"
+        type="text"
+        id="pincode"
+        value={user.pincode}
+        onChange={(e) => setUser({ ...user, pincode: e.target.value })}
+        placeholder="Pincode"
       />
       <button
         className="p-2 border border-gray-300 rounded-md mb-4 focus:outline-none focus:border-gray-600"
