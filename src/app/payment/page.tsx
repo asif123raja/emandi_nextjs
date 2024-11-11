@@ -28,7 +28,7 @@ export default function Home() {
       <div className="mb-10">
         <h1 className="text-4xl font-extrabold mb-2">Amount</h1>
         <h2 className="text-2xl">
-          has requested
+          has been requested
           <span className="font-bold"> ₹{totalAmount.toFixed(2)}</span>
         </h2>
       </div>
