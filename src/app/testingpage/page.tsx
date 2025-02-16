@@ -1,34 +1,62 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image'; // Import the Image component
+
+interface Product {
+  name: string;
+  image_url: string;
+  description: string;
+  currency: string;
+  discounted_price: number;
+  stock_quantity: number;
+}
 
 const ProductPage = ({ productId }: { productId: string }) => {
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState<Product | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const response = await fetch(`/api/users/testingpage/${productId}`);
-      const data = await response.json();
-      setProduct(data);
+      try {
+        const response = await fetch(`/api/users/testingpage/${productId}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch product');
+        }
+        const data: Product = await response.json();
+        setProduct(data);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'An error occurred');
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchProduct();
   }, [productId]);
 
-  if (!product) return <p>Loading...</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p className="text-red-500">Error: {error}</p>;
+  if (!product) return <p>No product found.</p>;
 
   return (
-    <div>
-      <h1>{product.name}</h1>
-      <Image
-        src={product.image_url}
-        alt={product.name}
-        width={500} // Required
-        height={300} // Required
-        priority // Optional: if this image is above the fold
-      />
-      <p>{product.description}</p>
-      <p>Price: {product.currency} {product.discounted_price}</p>
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4">{product.name}</h1>
+      <div className="mb-4">
+        <Image
+          src={product.image_url}
+          alt={product.name}
+          width={500}
+          height={300}
+          priority
+          className="rounded-lg"
+        />
+      </div>
+      <p className="mb-4">{product.description}</p>
+      <p className="mb-2">
+        Price: {product.currency} {product.discounted_price}
+      </p>
       <p>Stock Quantity: {product.stock_quantity}</p>
     </div>
   );
