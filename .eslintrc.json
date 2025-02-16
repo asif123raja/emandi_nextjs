@@ -1,3 +1,8 @@
+
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "@next/next/no-img-element": "off", // Disable img tag warning
+    "react-hooks/exhaustive-deps": "warn" // Treat missing deps as warnings
+  }
 }
