@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image'; // Import the Image component
+import Image from 'next/image';
 
 interface Product {
   name: string;
@@ -12,7 +12,7 @@ interface Product {
   stock_quantity: number;
 }
 
-const ProductPage = ({ productId }: { productId: string }) => {
+export default function ProductPage({ params }: { params: { productId: string } }) {
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -20,7 +20,7 @@ const ProductPage = ({ productId }: { productId: string }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`/api/users/testingpage/${productId}`);
+        const response = await fetch(`/api/users/testingpage/${params.productId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch product');
         }
@@ -34,7 +34,7 @@ const ProductPage = ({ productId }: { productId: string }) => {
     };
 
     fetchProduct();
-  }, [productId]);
+  }, [params.productId]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p className="text-red-500">Error: {error}</p>;
@@ -60,6 +60,4 @@ const ProductPage = ({ productId }: { productId: string }) => {
       <p>Stock Quantity: {product.stock_quantity}</p>
     </div>
   );
-};
-
-export default ProductPage;
+}
