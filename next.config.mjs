@@ -6,4 +6,11 @@ const nextConfig = {
   };
   
   export default nextConfig;
-  
+  // next.config.js
+module.exports = {
+  experimental: {
+    forceSwcTransforms: true,
+  },
+  // If deploying to Vercel
+  output: process.env.VERCEL_ENV ? 'standalone' : undefined,
+}
