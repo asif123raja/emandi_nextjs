@@ -11,12 +11,13 @@
 // next.config.mjs
 /** @type {import('next').NextConfig} */
 /** @type {import('next').NextConfig} */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**', // Allows all domains
+        hostname: '**', // Allow images from all domains
       },
     ],
   },
@@ -24,8 +25,8 @@ const nextConfig = {
     forceSwcTransforms: true,
   },
   output: process.env.VERCEL_ENV ? 'standalone' : undefined,
-  swcMinify: true, // Enable SWC minification for better performance
-  reactStrictMode: true, // Enable React Strict Mode for better debugging
+  swcMinify: true,
+  reactStrictMode: true,
 };
 
-module.exports = nextConfig;
+export default nextConfig;xtConfig;
