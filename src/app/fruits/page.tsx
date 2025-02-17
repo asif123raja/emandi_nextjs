@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import CategoryCard from "@/components/ui/card"; // Adjust the path if needed
-import Card from "@/components/ui/card";
+import {Card} from "@/components/ui/card";
 
 interface Item {
   id: string;
