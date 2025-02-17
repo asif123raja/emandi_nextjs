@@ -38,7 +38,7 @@ const FruitsPage: React.FC = () => {
       {items.map((item) => (
         <Card
           key={item.id}
-          image={item.image_url}
+          image={item.image_url}  // Pass image_url as image
           name={item.name}
           description={item.description}
           itemData={item}
@@ -46,6 +46,7 @@ const FruitsPage: React.FC = () => {
           discountedPrice={item.discounted_price.toLocaleString()}
           currency={item.currency}
         />
+
       ))}
     </div>
   );
