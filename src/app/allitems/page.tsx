@@ -10,26 +10,27 @@ interface Item {
   protein: number;
   vitamins: { [key: string]: string };
   minerals: { [key: string]: string };
-  price: number;                // Added price field
-  discounted_price: number;     // Added discounted price field
-  currency: string;             // Added currency field
+  price: number;                
+  discounted_price: number;     
+  currency: string;             
+  stock_quantity: number;       // Added stock information
 }
 
 const CardGrid: React.FC = () => {
   const [items, setItems] = useState<Item[]>([]);
-  const [error, setError] = useState<string | null>(null); // Error state
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/users/allitems"); // Fetch data from backend API
+        const response = await fetch("/api/users/allitems");
         if (!response.ok) {
           throw new Error("Failed to fetch items");
         }
         const data = await response.json();
         setItems(data.items); // Adjust based on your API response structure
       } catch (err: any) {
-        setError(err.message); // Set error message if fetching fails
+        setError(err.message);
       }
     };
 
@@ -37,8 +38,9 @@ const CardGrid: React.FC = () => {
   }, []);
 
   if (error) {
-    return <div>Error: {error}</div>; // Display error if any
+    return <div>Error: {error}</div>;
   }
+
   // Function to truncate the description to 5-6 words
   const truncateDescription = (description: string, wordCount: number) => {
     const words = description.split(" ");
@@ -50,13 +52,22 @@ const CardGrid: React.FC = () => {
       {items.map((item) => (
         <Card
           key={item.name}
-          image={item.image_url} // Use image_url instead of image
+          image={item.image_url}
           name={item.name}
           description={truncateDescription(item.description, 6)}
-          itemData={item}
-          price={item.price.toLocaleString()} // Format price
-          discountedPrice={item.discounted_price.toLocaleString()} // Format discounted price
-          currency={item.currency} // Pass currency
+          itemData={{
+            name: item.name,
+            image: item.image_url,
+            description: item.description,
+            calories: item.calories,
+            protein: item.protein,
+            vitamins: item.vitamins,
+            minerals: item.minerals,
+            price: item.price,
+            discounted_price: item.discounted_price,
+            currency: item.currency,
+            quantity: item.stock_quantity, // Map stock_quantity to quantity
+          }}
         />
       ))}
     </div>
