@@ -8,9 +8,8 @@ interface CartItem {
   calories: number;
   protein: number;
   amount: number; // Amount of this item in the cart
-  price: number; // ✅ Add this line
+  price: number; // Price of the item
 }
-
 
 interface WishlistItem extends Omit<CartItem, "amount"> {} // Wishlist items do not have an amount
 
@@ -27,53 +26,49 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const isClient = typeof window !== "undefined"; // Check if running in browser
+  const isClient = typeof window !== "undefined"; // Check if running in the browser
 
-  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
-    if (!isClient) return [];
-    try {
-      const storedCart = localStorage.getItem("cartItems");
-      return storedCart ? JSON.parse(storedCart) : [];
-    } catch (error) {
-      console.error("Failed to parse cart items from local storage:", error);
-      return [];
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>([]);
+
+  // Load cart and wishlist from localStorage
+  useEffect(() => {
+    if (isClient) {
+      try {
+        const storedCart = localStorage.getItem("cartItems");
+        const storedWishlist = localStorage.getItem("wishlistItems");
+        setCartItems(storedCart ? JSON.parse(storedCart) : []);
+        setWishlistItems(storedWishlist ? JSON.parse(storedWishlist) : []);
+      } catch (error) {
+        console.error("Failed to parse items from local storage:", error);
+      }
     }
-  });
+  }, [isClient]);
 
-  const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>(() => {
-    if (!isClient) return [];
-    try {
-      const storedWishlist = localStorage.getItem("wishlistItems");
-      return storedWishlist ? JSON.parse(storedWishlist) : [];
-    } catch (error) {
-      console.error("Failed to parse wishlist items from local storage:", error);
-      return [];
-    }
-  });
-
-  // Save to localStorage when cart or wishlist changes
+  // Save cart and wishlist to localStorage when they change
   useEffect(() => {
     if (isClient) {
       try {
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
         localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
       } catch (error) {
-        console.error("Failed to save cart or wishlist items to local storage:", error);
+        console.error("Failed to save items to local storage:", error);
       }
     }
-  }, [cartItems, wishlistItems]);
+  }, [cartItems, wishlistItems, isClient]);
 
   const addToCart = (item: Omit<CartItem, "amount"> & { amount?: number }) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((cartItem) => cartItem.name === item.name);
+      const newAmount = Math.max(item.amount || 1, 1);
       if (existingItem) {
         return prevItems.map((cartItem) =>
           cartItem.name === item.name
-            ? { ...cartItem, amount: Math.max(cartItem.amount + (item.amount || 1), 1) }
+            ? { ...cartItem, amount: cartItem.amount + newAmount }
             : cartItem
         );
       } else {
-        return [...prevItems, { ...item, amount: Math.max(item.amount || 1, 1) }];
+        return [...prevItems, { ...item, amount: newAmount }];
       }
     });
   };
