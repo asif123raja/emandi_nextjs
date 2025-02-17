@@ -2,7 +2,7 @@ import { connect } from '@/dbConfig/dbConfig';
 import mongoose from 'mongoose';
 import Seller from '@/models/sellersmodel';
 import SellerItemQuantity from '@/models/itemQuantities';
-import Product from '@/models/productModel'; // Assuming you have a Product model
+import Product from '@/models/productModel';
 import { NextRequest, NextResponse } from 'next/server';
 
 connect();
@@ -10,7 +10,7 @@ connect();
 const { Types } = mongoose;
 const { ObjectId } = Types;
 
-function isValidObjectId(id) {
+function isValidObjectId(id: string): boolean {
   return ObjectId.isValid(id) && new ObjectId(id).toString() === id;
 }
 
@@ -30,28 +30,31 @@ export async function POST(request: NextRequest) {
     const sellerId = seller._id;
     const pinCode = seller.pinCode;
 
-    const itemQuantitiesWithObjectId = await Promise.all(itemQuantities.map(async (item) => {
-      const product = await Product.findOne({ id: item.itemId }); // Adjust to find by 'id' or use `_id` if needed
+    const itemQuantitiesWithObjectId = await Promise.all(
+      itemQuantities.map(async (item) => {
+        const product = await Product.findById(item.itemId); // Assuming `itemId` is `_id`
 
-      if (!product) {
-        throw new Error(`Product not found for itemId: ${item.itemId}`);
-      }
+        if (!product) {
+          return null; // Skip invalid products
+        }
 
-      const itemId = product._id; // This gets the actual MongoDB ObjectId
+        return {
+          itemId: product._id, // Store as ObjectId
+          quantity: item.quantity,
+        };
+      })
+    );
 
-      return {
-        itemId: itemId, // Use the ObjectId directly
-        quantity: item.quantity,
-      };
-    }));
+    // Filter out null values (invalid product IDs)
+    const validItemQuantities = itemQuantitiesWithObjectId.filter(Boolean);
 
     let record = await SellerItemQuantity.findOne({ sellerId, pinCode });
 
     if (record) {
-      record.itemQuantities = itemQuantitiesWithObjectId;
+      record.itemQuantities = validItemQuantities;
       await record.save();
     } else {
-      record = await SellerItemQuantity.create({ sellerId, pinCode, itemQuantities: itemQuantitiesWithObjectId });
+      record = await SellerItemQuantity.create({ sellerId, pinCode, itemQuantities: validItemQuantities });
     }
 
     return NextResponse.json({
@@ -60,7 +63,7 @@ export async function POST(request: NextRequest) {
       data: record,
     });
 
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error updating item quantities:", error.message);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
