@@ -116,3 +116,5 @@ const Card: React.FC<CardProps> = ({ image_url, name, description, itemData }) =
     </Link>
   );
 };
+
+export default Card;
