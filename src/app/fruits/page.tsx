@@ -36,16 +36,18 @@ const FruitsPage: React.FC = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
       {items.map((item) => (
-        <Card
-          key={item.id}
-          image={item.image_url}  // Pass image_url as image
-          name={item.name}
-          description={item.description}
-          itemData={item}
-          price={item.price.toLocaleString()}
-          discountedPrice={item.discounted_price.toLocaleString()}
-          currency={item.currency}
-        />
+      <Card
+        key={item.id}
+        image={item.image_url}  // Passing image_url as image
+        name={item.name}
+        description={item.description}
+        itemData={item}
+        price={item.price.toLocaleString()}
+        discountedPrice={item.discounted_price.toLocaleString()}
+        currency={item.currency}
+      />
+
+      
 
       ))}
     </div>
