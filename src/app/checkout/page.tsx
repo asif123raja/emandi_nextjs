@@ -85,7 +85,7 @@ const CheckoutPage: React.FC = () => {
 
   // Calculate the total price
   const computedTotalAmount = cartItems.reduce(
-    (acc, item) => acc + (item.price || 0) * item.amount * 50,
+    (acc, item) => acc + ((typeof item.price === "number" ? item.price : 0) * item.amount * 50),
     0
   );
 
@@ -111,7 +111,9 @@ const CheckoutPage: React.FC = () => {
             <span>
               {item.name} (50kg x{item.amount})
             </span>
-            <span>₹{((item.price || 0) * item.amount * 50).toFixed(2)}</span>
+            <span>
+              ₹{((typeof item.price === "number" ? item.price : 0) * item.amount * 50).toFixed(2)}
+            </span>
           </div>
         ))}
       </div>
@@ -119,9 +121,10 @@ const CheckoutPage: React.FC = () => {
       <div className="mt-6 text-right">
         <h2 className="text-xl font-semibold">Total: ₹{totalAmount.toFixed(2)}</h2>
       </div>
+
       {totalAmount > 0 && (
         <button
-          className="mt-4 bg-green-500 text-white px-4 py-2 rounded"
+          className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
           onClick={handleConfirmPayment}
         >
           Confirm Payment
@@ -132,3 +135,4 @@ const CheckoutPage: React.FC = () => {
 };
 
 export default CheckoutPage;
+
