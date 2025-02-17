@@ -61,17 +61,19 @@
 
 // // src/components/ui/card.tsx
 
+// src/components/ui/card.tsx
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 interface CardProps {
-  image_url: string; // Update to image_url
+  image_url: string;
   name: string;
   description: string;
   itemData: {
     name: string;
-    image_url: string; // Update here to image_url
+    image_url: string;
     description: string;
     calories: number;
     protein: number;
@@ -117,4 +119,4 @@ const Card: React.FC<CardProps> = ({ image_url, name, description, itemData }) =
   );
 };
 
-export default Card;
+export default Card; // Make sure this is the default export
