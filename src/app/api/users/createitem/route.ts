@@ -1,7 +1,7 @@
 import { connect } from '@/dbConfig/dbConfig';
 import Product from '@/models/productModel';
 import { NextRequest, NextResponse } from 'next/server';
-import cloudinary from 'cloudinary';
+import { v2 as cloudinary } from 'cloudinary';
 import { Readable } from 'stream';
 
 connect();
@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create a readable stream from the file buffer asynchronously
-    const imageBuffer = Buffer.from(await imageFile.arrayBuffer()); // Await inside an async function
+    const imageBuffer = Buffer.from(await imageFile.arrayBuffer());
     const stream = new Readable({
       read() {
         this.push(imageBuffer);
@@ -32,14 +32,13 @@ export async function POST(request: NextRequest) {
 
     // Upload the image to Cloudinary
     const uploadResult = await new Promise((resolve, reject) => {
-      const cloudinaryStream = cloudinary.v2.uploader.upload_stream(
+      const cloudinaryStream = cloudinary.uploader.upload_stream(
         { resource_type: 'auto' },
         (error, result) => {
           if (error) reject(`Cloudinary upload error: ${error.message}`);
           else resolve(result);
         }
       );
-
       stream.pipe(cloudinaryStream);
     });
 
