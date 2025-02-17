@@ -8,7 +8,9 @@ interface CartItem {
   calories: number;
   protein: number;
   amount: number; // Amount of this item in the cart
+  price: number; // ✅ Add this line
 }
+
 
 interface WishlistItem extends Omit<CartItem, "amount"> {} // Wishlist items do not have an amount
 
