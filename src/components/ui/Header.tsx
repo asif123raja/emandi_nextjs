@@ -224,7 +224,7 @@ const Header: React.FC = () => {
   // Call checkAuth on component mount
   useEffect(() => {
     checkAuth();
-  }, []);
+  }, [checkAuth]);
 
   const logout = async () => {
     try {
