@@ -11,7 +11,13 @@ cloudinary.v2.config({
 });
 
 // Initialize Google Generative AI client
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GENERATIVE_AI_KEY);
+const apiKey = process.env.GOOGLE_GENERATIVE_AI_KEY;
+if (!apiKey) {
+  throw new Error("Missing GOOGLE_GENERATIVE_AI_KEY environment variable");
+}
+const genAI = new GoogleGenerativeAI(apiKey);
+
+
 
 export async function POST(request: NextRequest) {
   try {
