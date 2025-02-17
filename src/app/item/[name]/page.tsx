@@ -95,10 +95,11 @@ const ItemPage: React.FC = () => {
   const searchParams = useSearchParams();
   const { addToCart } = useCart();
 
-  const name = searchParams.get("name");
+  // Optional: Retrieve query parameter if needed
+  const nameQuery = searchParams.get("name");
 
   useEffect(() => {
-    // Retrieve itemData from sessionStorage
+    // Safely access sessionStorage on the client side
     const data = sessionStorage.getItem("itemData");
     if (data) {
       try {
