@@ -138,7 +138,7 @@ const ItemPage: React.FC = () => {
 
   return (
     <div className="p-4">
-      <Item
+{/*       <Item
         image_url={itemData.image_url}
         name={itemData.name}
         description={itemData.description}
@@ -149,7 +149,21 @@ const ItemPage: React.FC = () => {
         price={itemData.price}
         discountedPrice={itemData.discountedPrice}
         currency={itemData.currency}
+      /> */}
+      <Item
+        name={item.name}
+        image={item.image_url} // pass the correct property
+        description={truncateDescription(item.description, 6)}
+        calories={item.calories}
+        protein={item.protein}
+        vitamins={item.vitamins}
+        minerals={item.minerals}
+        price={item.price}
+        discounted_price={item.discounted_price}
+        currency={item.currency}
+        quantity={item.stock_quantity} // pass the correct property
       />
+
       <button
         onClick={handleAddToCart}
         className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mt-4"
