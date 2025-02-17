@@ -17,8 +17,6 @@ if (!apiKey) {
 }
 const genAI = new GoogleGenerativeAI(apiKey);
 
-
-
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
@@ -27,7 +25,7 @@ export async function POST(request: NextRequest) {
     let imageUrl = "";
     let foodInsights = "";
 
-    // 1. Image Handling 
+    // 1. Image Handling
     if (image) {
       console.log("Image received, starting upload...");
       const imageBuffer = Buffer.from(await image.arrayBuffer());
@@ -39,7 +37,7 @@ export async function POST(request: NextRequest) {
             (error, result) => {
               if (error) {
                 console.error("Cloudinary upload error:", error);
-                reject(error); 
+                reject(error);
               } else {
                 resolve(result);
               }
@@ -51,24 +49,24 @@ export async function POST(request: NextRequest) {
         imageUrl = (uploadResult as any).secure_url;
         console.log("Image uploaded successfully:", imageUrl);
 
-        // 2. Image Analysis (Cloud Vision API)
+        // 2. Image Analysis using labelDetection (substitute for foodAnalysis)
         const client = new ImageAnnotatorClient();
-        console.log("Calling Cloud Vision API..."); 
-        const [result] = await client.foodAnalysis({
+        console.log("Calling Cloud Vision API...");
+        const [result] = await client.labelDetection({
           image: { source: { imageUri: imageUrl } },
         });
 
-        console.log("Cloud Vision response:", result); 
+        console.log("Cloud Vision response:", result);
 
-        if (result.annotation?.foodAnnotations) {
-          foodInsights = result.annotation.foodAnnotations
-            .map((food) => food.description)
+        if (result.labelAnnotations && result.labelAnnotations.length > 0) {
+          // Optionally, filter for food-related labels if needed.
+          foodInsights = result.labelAnnotations
+            .map((label) => label.description)
             .join(", ");
           console.log("Food Insights:", foodInsights);
         } else {
-          console.log("No food annotations found in the image.");
+          console.log("No label annotations found in the image.");
         }
-
       } catch (uploadError) {
         console.error("Error during image upload or analysis:", uploadError);
         return NextResponse.json(
@@ -93,7 +91,7 @@ export async function POST(request: NextRequest) {
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
         const geminiResponse = await model.generateContent(prompt);
 
-        console.log("Gemini Response:", geminiResponse.response.text()); 
+        console.log("Gemini Response:", geminiResponse.response.text());
 
         return NextResponse.json(
           {
@@ -110,9 +108,11 @@ export async function POST(request: NextRequest) {
       }
     } else {
       console.log("No prompt generated. Sending empty response.");
-      return NextResponse.json({ response: "Please provide an image or a question." }, { status: 200 }); 
+      return NextResponse.json(
+        { response: "Please provide an image or a question." },
+        { status: 200 }
+      );
     }
-
   } catch (error) {
     console.error("Unexpected error processing request:", error);
     return NextResponse.json(
