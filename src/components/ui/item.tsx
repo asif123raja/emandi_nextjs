@@ -319,7 +319,7 @@ const QuantitySelector: React.FC<{
       min={min}
       max={max}
       value={value}
-      onChange={(e) => onChange(Math.max(min, Math.min(max, Number(e.target.value)))}
+      onChange={(e) => onChange(Math.max(min, Math.min(max, Number(e.target.value))))}
       className="w-24 px-3 py-2 border rounded-md"
     />
     <span className="text-sm text-gray-500">1 unit = 50kg</span>
