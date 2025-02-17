@@ -49,15 +49,16 @@ const CardGrid: React.FC = () => {
 
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+     // In your allitems/page.tsx
       {items.map((item) => (
         <Card
-          key={item.name}
-          image={item.image_url}
+          key={item.id}
+          image_url={item.image_url} // Correct prop name
           name={item.name}
-          description={truncateDescription(item.description, 6)}
+          description={item.description}
           itemData={{
             name: item.name,
-            image: item.image_url,
+            image_url: item.image_url, // Use image_url here, not image
             description: item.description,
             calories: item.calories,
             protein: item.protein,
@@ -66,10 +67,11 @@ const CardGrid: React.FC = () => {
             price: item.price,
             discounted_price: item.discounted_price,
             currency: item.currency,
-            quantity: item.stock_quantity, // Map stock_quantity to quantity
+            quantity: item.quantity,
           }}
         />
       ))}
+
     </div>
   );
 };
