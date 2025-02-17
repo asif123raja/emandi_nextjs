@@ -49,7 +49,7 @@ const CardGrid: React.FC = () => {
 
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 p-4">
-     // In your allitems/page.tsx
+      {/*      // In your allitems/page.tsx */}
       {items.map((item) => (
         <Card
           key={item.id}
