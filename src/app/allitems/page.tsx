@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Card from "@/components/ui/card"; // Adjust the import path as needed
+import {Card} from "@/components/ui/card"; // Adjust the import path as needed
 
 interface Item {
   name: string;
