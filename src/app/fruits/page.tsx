@@ -6,7 +6,7 @@ import Card from "@/components/ui/card";
 interface Item {
   id: string;
   name: string;
-  image_url: string;
+  image_url: string; // This exists, but 'image' is missing
   description: string;
   calories: number;
   protein: number;
@@ -16,6 +16,7 @@ interface Item {
   discounted_price: number;
   currency: string;
   category: string;
+  quantity: number; // ✅ Add this field
 }
 
 const FruitsPage: React.FC = () => {
