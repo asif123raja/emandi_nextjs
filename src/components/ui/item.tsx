@@ -113,23 +113,24 @@
 
 // export default Item;
 
+"use client";
 import React, { useState } from "react";
 import { useCart } from "@/context/CartContext";
 import Image from "next/image";
 
 interface ItemProps {
-  id: string;  // Added unique identifier
-  image: string;  // Changed from image_url to match CartItem type
+  id: string; // Added unique identifier
+  image: string; // Changed from image_url to match CartItem type
   name: string;
   description: string;
   calories: number;
   protein: number;
   price: number;
-  discounted_price: number;  // Changed to snake_case for consistency
+  discounted_price: number; // Changed to snake_case for consistency
   currency: string;
   vitamins: Record<string, string>;
   minerals: Record<string, string>;
-  stock_quantity: number;  // Added stock information
+  stock_quantity: number; // Added stock information
 }
 
 const Item: React.FC<ItemProps> = ({
@@ -173,16 +174,19 @@ const Item: React.FC<ItemProps> = ({
   };
 
   const handleAddToWishlist = () => {
+    // Ensure all properties required by WishlistItem are included:
     const wishlistItem = {
       id,
       name,
       image,
       description,
+      calories,       // Added missing property
+      protein,        // Added missing property
       price,
       discounted_price,
       currency,
     };
-    
+
     addToWishlist(wishlistItem);
     console.log(`Added ${name} to wishlist`);
   };
@@ -279,9 +283,7 @@ const PriceDisplay: React.FC<{
 );
 
 const StockStatus: React.FC<{ quantity: number }> = ({ quantity }) => (
-  <div className={`mt-2 text-sm ${
-    quantity > 0 ? 'text-green-600' : 'text-red-600'
-  }`}>
+  <div className={`mt-2 text-sm ${quantity > 0 ? 'text-green-600' : 'text-red-600'}`}>
     {quantity > 0 ? `${quantity} in stock` : "Out of stock"}
   </div>
 );
