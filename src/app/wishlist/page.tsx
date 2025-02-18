@@ -1,15 +1,14 @@
 "use client";
 import React from "react";
-import { useWishlist, useCart, WishlistItem } from "@/context/CartContext"; // Import WishlistItem type as well
+import { useWishlist, useCart, WishlistItem } from "@/context/CartContext";
 import Image from "next/image";
 
 const WishlistPage: React.FC = () => {
-  const { wishlistItems, removeFromWishlist } = useWishlist(); // Get wishlist items
-  const { addToCart } = useCart(); // Get cart functionalities
+  const { wishlistItems, removeFromWishlist } = useWishlist();
+  const { addToCart } = useCart();
 
-  // Explicitly type the parameter as WishlistItem
   const handleAddToCart = (item: WishlistItem): void => {
-    addToCart(item); // Add item to the cart without removing from wishlist
+    addToCart(item);
   };
 
   if (wishlistItems.length === 0) {
