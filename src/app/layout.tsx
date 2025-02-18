@@ -23,16 +23,14 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" /> {/* Add your favicon here */}
-        <title>{metadata.title ?? ""}</title>
-        <meta name="description" content={metadata.description ?? ""} />
+        <title>{String(metadata.title)}</title>
+        <meta name="description" content={String(metadata.description)} />
       </head>
       <body className={inter.className}>
         <CartProvider>
           <TotalAmountProvider>
             <Header />
-            <main className="p-4 md:p-8">
-              {children}
-            </main>
+            <main className="p-4 md:p-8">{children}</main>
             <ChatbotIcon />
             <Footer />
           </TotalAmountProvider>
