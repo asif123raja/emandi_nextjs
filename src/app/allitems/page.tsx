@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Card from "@/components/ui/card"; // Adjust the import path as needed
 
 interface Item {
+  id: string; // Add id as a string
   name: string;
   image_url: string;
   description: string;
@@ -10,11 +11,12 @@ interface Item {
   protein: number;
   vitamins: { [key: string]: string };
   minerals: { [key: string]: string };
-  price: number;                
-  discounted_price: number;     
-  currency: string;             
-  stock_quantity: number;       // Added stock information
+  price: number;
+  discounted_price: number;
+  currency: string;
+  quantity: number;
 }
+
 
 const CardGrid: React.FC = () => {
   const [items, setItems] = useState<Item[]>([]);
