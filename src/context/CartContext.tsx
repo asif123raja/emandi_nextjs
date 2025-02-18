@@ -1,17 +1,17 @@
 "use client";
 import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
 
-interface CartItem {
+export interface CartItem {
   name: string;
   image: string;
   description: string;
   calories: number;
   protein: number;
   amount: number; // Amount of this item in the cart
-  price: number; // Price of the item
+  price: number;  // Price of the item
 }
 
-interface WishlistItem extends Omit<CartItem, "amount"> {} // Wishlist items do not have an amount
+export interface WishlistItem extends Omit<CartItem, "amount"> {} // Wishlist items do not have an amount
 
 interface CartContextType {
   cartItems: CartItem[];
@@ -26,12 +26,12 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const isClient = typeof window !== "undefined"; // Check if running in the browser
+  const isClient = typeof window !== "undefined";
 
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>([]);
 
-  // Load cart and wishlist from localStorage
+  // Load cart and wishlist from localStorage on mount
   useEffect(() => {
     if (isClient) {
       try {
@@ -78,13 +78,13 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   const clearCart = () => {
-    setCartItems([]); // Clear all items from the cart
+    setCartItems([]);
   };
 
   const addToWishlist = (item: WishlistItem) => {
     setWishlistItems((prevItems) => {
       const existingItem = prevItems.find((wishlistItem) => wishlistItem.name === item.name);
-      return existingItem ? prevItems : [...prevItems, item]; // Prevent duplicates
+      return existingItem ? prevItems : [...prevItems, item];
     });
   };
 
@@ -109,7 +109,6 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   );
 };
 
-// Custom hooks for using cart and wishlist
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {
