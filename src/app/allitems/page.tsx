@@ -17,7 +17,6 @@ interface Item {
   quantity: number;
 }
 
-
 const CardGrid: React.FC = () => {
   const [items, setItems] = useState<Item[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -51,16 +50,15 @@ const CardGrid: React.FC = () => {
 
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 p-4">
-      {/*      // In your allitems/page.tsx */}
       {items.map((item) => (
         <Card
           key={item.id}
-          image_url={item.image_url} // Correct prop name
+          image_url={item.image_url} // This prop remains the same for the Card component
           name={item.name}
           description={item.description}
           itemData={{
             name: item.name,
-            image_url: item.image_url, // Use image_url here, not image
+            image: item.image_url, // Map to 'image' since the Card component expects it
             description: item.description,
             calories: item.calories,
             protein: item.protein,
@@ -73,7 +71,6 @@ const CardGrid: React.FC = () => {
           }}
         />
       ))}
-
     </div>
   );
 };
