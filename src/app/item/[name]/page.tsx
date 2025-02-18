@@ -1,74 +1,3 @@
-// "use client";
-// import React, { useEffect, useState } from "react";
-// import { useSearchParams } from "next/navigation";
-// import Item from "@/components/ui/item"; // Adjust the import path as needed
-// import { useCart } from "@/context/CartContext"; // Import the useCart hook
-
-// const ItemPage: React.FC = () => {
-//   const [itemData, setItemData] = useState<any | null>(null);
-//   const searchParams = useSearchParams();
-//   const { addToCart } = useCart();
-
-//   const name = searchParams.get("name");
-
-//   useEffect(() => {
-//     // Retrieve itemData from sessionStorage
-//     const data = sessionStorage.getItem("itemData");
-//     if (data) {
-//       setItemData(JSON.parse(data));
-//     }
-//   }, []);
-
-//   const handleAddToCart = () => {
-//     if (itemData) {
-//       const itemToAdd = {
-//         name: itemData.name,
-//         image: itemData.image_url,
-//         description: itemData.description,
-//         calories: itemData.calories,
-//         protein: itemData.protein,
-//         price: itemData.price,                // Add price
-//         discountedPrice: itemData.discountedPrice, // Add discounted price
-//         amount: 1,
-//       };
-//       addToCart(itemToAdd);
-//       console.log(`Added ${itemToAdd.name} to cart`);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       {itemData ? (
-//         <>
-//           <Item
-//             image_url={itemData.image_url}
-//             name={itemData.name}
-//             description={itemData.description}
-//             calories={itemData.calories}
-//             protein={itemData.protein}
-//             vitamins={itemData.vitamins}
-//             minerals={itemData.minerals}
-//             price={itemData.price} // Display price
-//             discountedPrice={itemData.discountedPrice} // Display discounted price
-
-//           />
-//           {/* 1 unit means 50 kg. */}
-//           {/* <button
-//             onClick={handleAddToCart}
-//             className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mt-4"
-//           >
-//             Add to Cart
-//           </button> */}
-//         </>
-//       ) : (
-//         <p>Loading...</p>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default ItemPage;
-
 "use client";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -86,6 +15,7 @@ interface ItemData {
   price: number;
   discountedPrice: number;
   currency: string;
+  quantity: number;
 }
 
 const ItemPage: React.FC = () => {
@@ -114,11 +44,17 @@ const ItemPage: React.FC = () => {
     setLoading(false);
   }, []);
 
+  // Function to truncate the description to a certain number of words
+  const truncateDescription = (description: string, wordCount: number): string => {
+    const words = description.split(" ");
+    return words.length > wordCount ? words.slice(0, wordCount).join(" ") + "..." : description;
+  };
+
   const handleAddToCart = () => {
     if (itemData) {
       const itemToAdd = {
         name: itemData.name,
-        image: itemData.image_url,
+        image: itemData.image_url, // Passing image_url as image
         description: itemData.description,
         calories: itemData.calories,
         protein: itemData.protein,
@@ -138,30 +74,18 @@ const ItemPage: React.FC = () => {
 
   return (
     <div className="p-4">
-{/*       <Item
-        image_url={itemData.image_url}
+      <Item
         name={itemData.name}
-        description={itemData.description}
+        image={itemData.image_url} // <Item> expects a prop called "image"
+        description={truncateDescription(itemData.description, 6)}
         calories={itemData.calories}
         protein={itemData.protein}
         vitamins={itemData.vitamins}
         minerals={itemData.minerals}
         price={itemData.price}
-        discountedPrice={itemData.discountedPrice}
+        discounted_price={itemData.discountedPrice}
         currency={itemData.currency}
-      /> */}
-      <Item
-        name={item.name}
-        image={item.image_url} // pass the correct property
-        description={truncateDescription(item.description, 6)}
-        calories={item.calories}
-        protein={item.protein}
-        vitamins={item.vitamins}
-        minerals={item.minerals}
-        price={item.price}
-        discounted_price={item.discounted_price}
-        currency={item.currency}
-        quantity={item.stock_quantity} // pass the correct property
+        quantity={itemData.quantity}
       />
 
       <button
