@@ -99,9 +99,17 @@ const Card: React.FC<CardProps> = ({ image_url, name, description, itemData }) =
       onClick={handleClick}
       className="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200"
     >
-      <Image src={image_url} alt={name} className="w-full h-48 object-cover" width={400} height={200} />
+      <Image
+        src={image_url}
+        alt={name}
+        className="w-full h-48 object-cover"
+        width={400}
+        height={200}
+      />
       <div className="p-4">
-        <h3 className="text-xl font-semibold flex justify-center items-center">{name}</h3>
+        <h3 className="text-xl font-semibold flex justify-center items-center">
+          {name}
+        </h3>
         <p>{description}</p>
         <div className="mt-2">
           <span className="text-lg font-semibold flex justify-center items-center p-2">
@@ -119,4 +127,4 @@ const Card: React.FC<CardProps> = ({ image_url, name, description, itemData }) =
   );
 };
 
-export default Card; // Make sure this is the default export
+export default Card;
