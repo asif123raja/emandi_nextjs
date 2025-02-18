@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import { useStripe, useElements, PaymentElement } from "@stripe/react-stripe-js";
 import convertToSubcurrency from "@/lib/convertToSubcurrency";
@@ -44,7 +43,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
     const { error: submitError } = await elements.submit();
 
     if (submitError) {
-      setErrorMessage(submitError.message);
+      setErrorMessage(submitError.message ?? "An unexpected error occurred during submission.");
       setLoading(false);
       return;
     }
@@ -58,7 +57,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
     });
 
     if (error) {
-      setErrorMessage(error.message); // Show any errors that occur during confirmation
+      setErrorMessage(error.message ?? "An error occurred during payment confirmation.");
     }
 
     setLoading(false);
