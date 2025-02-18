@@ -5,6 +5,7 @@ import Item from "@/components/ui/item"; // Adjust the import path as needed
 import { useCart } from "@/context/CartContext"; // Import the useCart hook
 
 interface ItemData {
+  id?: string; // Optional id; if not present, we can fall back to name
   name: string;
   image_url: string;
   description: string;
@@ -47,19 +48,23 @@ const ItemPage: React.FC = () => {
   // Function to truncate the description to a certain number of words
   const truncateDescription = (description: string, wordCount: number): string => {
     const words = description.split(" ");
-    return words.length > wordCount ? words.slice(0, wordCount).join(" ") + "..." : description;
+    return words.length > wordCount
+      ? words.slice(0, wordCount).join(" ") + "..."
+      : description;
   };
 
-  const handleAddToCart = () => {
+  // Optional extra add-to-cart functionality (if needed outside of the Item component)
+  const handleExtraAddToCart = () => {
     if (itemData) {
       const itemToAdd = {
+        id: itemData.id || itemData.name, // fallback if id is missing
         name: itemData.name,
         image: itemData.image_url, // Passing image_url as image
         description: itemData.description,
         calories: itemData.calories,
         protein: itemData.protein,
         price: itemData.price,
-        discountedPrice: itemData.discountedPrice,
+        discounted_price: itemData.discountedPrice,
         currency: itemData.currency,
         amount: 1, // Default quantity
       };
@@ -75,6 +80,7 @@ const ItemPage: React.FC = () => {
   return (
     <div className="p-4">
       <Item
+        id={itemData.id || itemData.name} // Provide a unique identifier
         name={itemData.name}
         image={itemData.image_url} // <Item> expects a prop called "image"
         description={truncateDescription(itemData.description, 6)}
@@ -85,11 +91,12 @@ const ItemPage: React.FC = () => {
         price={itemData.price}
         discounted_price={itemData.discountedPrice}
         currency={itemData.currency}
-        quantity={itemData.quantity}
+        stock_quantity={itemData.quantity}
       />
 
+      {/* Optionally, if you want an extra "Add to Cart" button outside the Item component */}
       <button
-        onClick={handleAddToCart}
+        onClick={handleExtraAddToCart}
         className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mt-4"
       >
         Add to Cart
