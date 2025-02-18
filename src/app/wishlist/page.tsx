@@ -1,33 +1,41 @@
 "use client";
 import React from "react";
-import { useWishlist, useCart } from "@/context/CartContext"; // Import both contexts
+import { useWishlist, useCart, WishlistItem } from "@/context/CartContext"; // Import WishlistItem type as well
 import Image from "next/image";
 
 const WishlistPage: React.FC = () => {
   const { wishlistItems, removeFromWishlist } = useWishlist(); // Get wishlist items
   const { addToCart } = useCart(); // Get cart functionalities
 
-  const handleAddToCart = (item) => {
+  // Explicitly type the parameter as WishlistItem
+  const handleAddToCart = (item: WishlistItem): void => {
     addToCart(item); // Add item to the cart without removing from wishlist
   };
 
   if (wishlistItems.length === 0) {
-    return <div>Your wishlist is empty.</div>; // Message if the wishlist is empty
+    return <div>Your wishlist is empty.</div>;
   }
 
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold">Your Wishlist</h1>
-      <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 lg:grid-cols-3"> {/* Responsive grid */}
+      <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 lg:grid-cols-3">
         {wishlistItems.map((item) => (
-          <div key={item.name} className="flex items-center justify-between p-4 border rounded-lg shadow-lg">
+          <div
+            key={item.name}
+            className="flex items-center justify-between p-4 border rounded-lg shadow-lg"
+          >
             <div className="flex-grow">
               <h2 className="text-lg font-semibold">{item.name}</h2>
-              {/* <p className="text-sm">{item.description}</p>
-              <p className="text-sm">Calories: {item.calories}</p>
-              <p className="text-sm">Protein: {item.protein}g</p> */}
+              {/* Optionally, display additional item details here */}
             </div>
-            <Image src={item.image} alt={item.name} width={64} height={64} className="object-cover rounded-md ml-4" />
+            <Image
+              src={item.image}
+              alt={item.name}
+              width={64}
+              height={64}
+              className="object-cover rounded-md ml-4"
+            />
             <div className="flex flex-col justify-between ml-4">
               <button
                 onClick={() => handleAddToCart(item)}
