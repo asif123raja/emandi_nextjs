@@ -84,9 +84,20 @@ interface CardProps {
     currency: string;
     quantity: number;
   };
+  price: string;
+  discountedPrice: string;
+  currency: string;
 }
 
-const Card: React.FC<CardProps> = ({ image_url, name, description, itemData }) => {
+const Card: React.FC<CardProps> = ({
+  image_url,
+  name,
+  description,
+  itemData,
+  price,
+  discountedPrice,
+  currency,
+}) => {
   const handleClick = () => {
     if (typeof window !== "undefined") {
       sessionStorage.setItem("itemData", JSON.stringify(itemData));
@@ -113,10 +124,8 @@ const Card: React.FC<CardProps> = ({ image_url, name, description, itemData }) =
         <p>{description}</p>
         <div className="mt-2">
           <span className="text-lg font-semibold flex justify-center items-center p-2">
-            ₹{(itemData.discounted_price ?? 0).toLocaleString()}{" "}
-            <span className="text-red-500 line-through pl-2">
-              ₹{(itemData.price ?? 0).toLocaleString()}
-            </span>
+            ₹{discountedPrice}{" "}
+            <span className="text-red-500 line-through pl-2">₹{price}</span>
           </span>
           <div className="text-center mt-1 text-gray-600">
             Quantity available: {itemData.quantity}
