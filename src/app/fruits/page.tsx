@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Card from "@/components/ui/card"; // Adjust the import path if needed
+import Card from "@/components/ui/card"; // Adjust the import path as needed
 
 interface Item {
   id: string;
@@ -37,12 +37,12 @@ const FruitsPage: React.FC = () => {
       {items.map((item) => (
         <Card
           key={item.id}
-          image_url={item.image_url} // Using image_url instead of image
+          image_url={item.image_url}
           name={item.name}
           description={item.description}
           itemData={{
             name: item.name,
-            image_url: item.image_url, // Must match CardProps type
+            image_url: item.image_url,
             description: item.description,
             calories: item.calories,
             protein: item.protein,
