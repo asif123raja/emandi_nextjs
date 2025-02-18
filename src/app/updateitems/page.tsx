@@ -1,16 +1,21 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 
-const SetQuantityPage = () => {
-  const [items, setItems] = useState([]);
-  const [itemQuantities, setItemQuantities] = useState({});
-  const [email, setEmail] = useState(""); // Seller's email
+interface Item {
+  id: string;
+  name: string;
+  price: number;
+}
+
+const SetQuantityPage: React.FC = () => {
+  const [items, setItems] = useState<Item[]>([]);
+  const [itemQuantities, setItemQuantities] = useState<Record<string, string>>({});
+  const [email, setEmail] = useState<string>("");
 
   // Fetch items when the component mounts
   useEffect(() => {
     async function fetchItems() {
-      const response = await fetch("/api/users/iitems"); // Fetch items with IDs
+      const response = await fetch("/api/users/iitems");
       const data = await response.json();
       if (data.items) {
         setItems(data.items);
@@ -21,27 +26,31 @@ const SetQuantityPage = () => {
     fetchItems();
   }, []);
 
-  const handleQuantityChange = (itemId, quantity) => {
+  // Explicitly type parameters: itemId as string and quantity as string
+  const handleQuantityChange = (itemId: string, quantity: string): void => {
     setItemQuantities((prev) => ({
       ...prev,
       [itemId]: quantity,
     }));
   };
 
-  const handleSubmit = async (e) => {
+  // Type the form event parameter
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Map itemQuantities to include valid ObjectId strings if necessary
-    const itemQuantitiesArray = Object.entries(itemQuantities).map(([itemId, quantity]) => ({
-      itemId: itemId, // Ensure this is a valid ObjectId string
-      quantity: parseInt(quantity, 10),
-    }));
+    // Map itemQuantities to an array of objects with itemId and quantity as a number
+    const itemQuantitiesArray = Object.entries(itemQuantities).map(
+      ([itemId, quantity]) => ({
+        itemId: itemId,
+        quantity: parseInt(quantity, 10),
+      })
+    );
 
     const response = await fetch("/api/users/updateItems", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        email, // Send seller's email instead of sellerId and pinCode
+        email, // Send seller's email
         itemQuantities: itemQuantitiesArray,
       }),
     });
@@ -53,7 +62,7 @@ const SetQuantityPage = () => {
       setItemQuantities({});
     } else {
       console.error("Error updating quantities:", result.error);
-      alert(`Error updating quantities: ${result.error}`); // Provide feedback to the user
+      alert(`Error updating quantities: ${result.error}`);
     }
   };
 
