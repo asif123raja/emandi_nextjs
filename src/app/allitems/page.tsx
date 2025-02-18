@@ -29,7 +29,7 @@ const CardGrid: React.FC = () => {
           throw new Error("Failed to fetch items");
         }
         const data = await response.json();
-        setItems(data.items);
+        setItems(data.items); // Adjust based on your API response structure
       } catch (err: any) {
         setError(err.message);
       }
@@ -60,7 +60,7 @@ const CardGrid: React.FC = () => {
           description={truncateDescription(item.description, 6)}
           itemData={{
             name: item.name,
-            image_url: item.image_url, // Updated property name
+            image_url: item.image_url,
             description: item.description,
             calories: item.calories,
             protein: item.protein,
@@ -71,6 +71,9 @@ const CardGrid: React.FC = () => {
             currency: item.currency,
             quantity: item.quantity,
           }}
+          price={item.price.toLocaleString()}
+          discountedPrice={item.discounted_price.toLocaleString()}
+          currency={item.currency}
         />
       ))}
     </div>
