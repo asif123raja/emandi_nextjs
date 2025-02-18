@@ -75,7 +75,7 @@
 
 import React, { useEffect } from "react";
 import { useCart } from "@/context/CartContext";
-import { useTotalAmount } from "../TotalAmountContext/page";
+import { TotalAmountProvider } from "@/context/TotalAmountContext"; 
 import { useRouter } from "next/navigation";
 
 const CheckoutPage: React.FC = () => {
