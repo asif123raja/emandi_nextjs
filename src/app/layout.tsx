@@ -1,10 +1,10 @@
-
 import { Inter } from "next/font/google";
+import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/ui/Header";  // Adjust the import path if necessary
-import Footer from "@/components/ui/Footer";  // Adjust the import path if necessary
+import Header from "@/components/ui/Header"; // Adjust the import path if necessary
+import Footer from "@/components/ui/Footer"; // Adjust the import path if necessary
 import { CartProvider } from "@/context/CartContext"; // Import CartProvider
-import { TotalAmountProvider, useTotalAmount } from "./TotalAmountContext/page";
+import { TotalAmountProvider } from "./TotalAmountContext/page"; // Import TotalAmountProvider
 import ChatbotIcon from "@/components/ui/chatbot";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,9 +16,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <head>
@@ -27,14 +27,14 @@ export default function RootLayout({
         <meta name="description" content={metadata.description} />
       </head>
       <body className={inter.className}>
-        <CartProvider> {/* Wrap your application in CartProvider */}
-        <TotalAmountProvider>
-          <Header />
-          <main className="p-4 md:p-8"> {/* Add padding for better spacing */}
-            {children} {/* This is where the dynamic content will be rendered */}
-          </main>
-          <ChatbotIcon/>
-          <Footer />
+        <CartProvider>
+          <TotalAmountProvider>
+            <Header />
+            <main className="p-4 md:p-8">
+              {children}
+            </main>
+            <ChatbotIcon />
+            <Footer />
           </TotalAmountProvider>
         </CartProvider>
       </body>
