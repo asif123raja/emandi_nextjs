@@ -15,6 +15,7 @@ interface Item {
   discounted_price: number;
   currency: string;
   category: string;
+  quantity: number; // Added this property
 }
 
 const VegetablesPage: React.FC = () => {
@@ -23,8 +24,14 @@ const VegetablesPage: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("/Veg_Fruits.json");
-      const data: Item[] = await response.json();
-      const vegetableItems = data.filter((item) => item.category === "Vegetable");
+      const data: Partial<Item>[] = await response.json();
+      // Map data to ensure each item has a quantity (default to 0 if missing)
+      const vegetableItems = data
+        .filter(item => item.category === "Vegetable")
+        .map(item => ({
+          ...item,
+          quantity: item.quantity ?? 0, // Set default quantity if not provided
+        })) as Item[];
       setItems(vegetableItems);
     };
 
@@ -36,10 +43,22 @@ const VegetablesPage: React.FC = () => {
       {items.map((item) => (
         <Card
           key={item.id}
-          image_url={item.image_url} // Changed prop to match CardProps
+          image_url={item.image_url}
           name={item.name}
           description={item.description}
-          itemData={item}
+          itemData={{
+            name: item.name,
+            image_url: item.image_url,
+            description: item.description,
+            calories: item.calories,
+            protein: item.protein,
+            vitamins: item.vitamins,
+            minerals: item.minerals,
+            price: item.price,
+            discounted_price: item.discounted_price,
+            currency: item.currency,
+            quantity: item.quantity,
+          }}
           price={item.price.toLocaleString()}
           discountedPrice={item.discounted_price.toLocaleString()}
           currency={item.currency}
