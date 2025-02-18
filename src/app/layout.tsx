@@ -1,11 +1,10 @@
-"use client";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import { CartProvider } from "@/context/CartContext";
-import { TotalAmountProvider } from "@/context/TotalAmountContext"; // Updated import path
+import { TotalAmountProvider } from "@/context/TotalAmountContext";
 import ChatbotIcon from "@/components/ui/chatbot";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,8 +23,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" />
-        <title>{String(metadata.title)}</title>
-        <meta name="description" content={String(metadata.description)} />
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
       </head>
       <body className={inter.className}>
         <CartProvider>
