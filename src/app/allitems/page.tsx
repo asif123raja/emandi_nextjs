@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Card from "@/components/ui/card"; // Adjust the import path as needed
 
 interface Item {
-  id: string; // Add id as a string
+  id: string;
   name: string;
   image_url: string;
   description: string;
@@ -29,7 +29,7 @@ const CardGrid: React.FC = () => {
           throw new Error("Failed to fetch items");
         }
         const data = await response.json();
-        setItems(data.items); // Adjust based on your API response structure
+        setItems(data.items);
       } catch (err: any) {
         setError(err.message);
       }
@@ -45,7 +45,9 @@ const CardGrid: React.FC = () => {
   // Function to truncate the description to 5-6 words
   const truncateDescription = (description: string, wordCount: number) => {
     const words = description.split(" ");
-    return words.length > wordCount ? words.slice(0, wordCount).join(" ") + "..." : description;
+    return words.length > wordCount
+      ? words.slice(0, wordCount).join(" ") + "..."
+      : description;
   };
 
   return (
@@ -53,12 +55,12 @@ const CardGrid: React.FC = () => {
       {items.map((item) => (
         <Card
           key={item.id}
-          image_url={item.image_url} // This prop remains the same for the Card component
+          image_url={item.image_url}
           name={item.name}
-          description={item.description}
+          description={truncateDescription(item.description, 6)}
           itemData={{
             name: item.name,
-            image: item.image_url, // Map to 'image' since the Card component expects it
+            image_url: item.image_url, // Updated property name
             description: item.description,
             calories: item.calories,
             protein: item.protein,
