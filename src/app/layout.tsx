@@ -1,10 +1,11 @@
+"use client";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/ui/Header"; // Adjust the import path if necessary
-import Footer from "@/components/ui/Footer"; // Adjust the import path if necessary
-import { CartProvider } from "@/context/CartContext"; // Import CartProvider
-import { TotalAmountProvider } from "./TotalAmountContext/page"; // Import TotalAmountProvider
+import Header from "@/components/ui/Header";
+import Footer from "@/components/ui/Footer";
+import { CartProvider } from "@/context/CartContext";
+import { TotalAmountProvider } from "@/context/TotalAmountContext"; // Updated import path
 import ChatbotIcon from "@/components/ui/chatbot";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,8 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-{/*         <link rel="icon" href="/favicon.ico" /> */}
-        {/* Add your favicon here */}
+        <link rel="icon" href="/favicon.ico" />
         <title>{String(metadata.title)}</title>
         <meta name="description" content={String(metadata.description)} />
       </head>
