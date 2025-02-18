@@ -1,12 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import CategoryCard from "@/components/ui/card"; // Adjust the path if needed
-import Card from "@/components/ui/card";
+import Card from "@/components/ui/card"; // Adjust the import path if needed
 
 interface Item {
   id: string;
   name: string;
-  image_url: string; // This exists, but 'image' is missing
+  image_url: string;
   description: string;
   calories: number;
   protein: number;
@@ -16,7 +15,7 @@ interface Item {
   discounted_price: number;
   currency: string;
   category: string;
-  quantity: number; // ✅ Add this field
+  quantity: number;
 }
 
 const FruitsPage: React.FC = () => {
@@ -26,7 +25,7 @@ const FruitsPage: React.FC = () => {
     const fetchData = async () => {
       const response = await fetch("/Veg_Fruits.json");
       const data: Item[] = await response.json();
-      const fruitItems = data.filter(item => item.category === "Fruit");
+      const fruitItems = data.filter((item) => item.category === "Fruit");
       setItems(fruitItems);
     };
 
@@ -36,19 +35,28 @@ const FruitsPage: React.FC = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
       {items.map((item) => (
-      <Card
-        key={item.id}
-        image={item.image_url}  // Passing image_url as image
-        name={item.name}
-        description={item.description}
-        itemData={item}
-        price={item.price.toLocaleString()}
-        discountedPrice={item.discounted_price.toLocaleString()}
-        currency={item.currency}
-      />
-
-      
-
+        <Card
+          key={item.id}
+          image_url={item.image_url} // Using image_url instead of image
+          name={item.name}
+          description={item.description}
+          itemData={{
+            name: item.name,
+            image_url: item.image_url, // Must match CardProps type
+            description: item.description,
+            calories: item.calories,
+            protein: item.protein,
+            vitamins: item.vitamins,
+            minerals: item.minerals,
+            price: item.price,
+            discounted_price: item.discounted_price,
+            currency: item.currency,
+            quantity: item.quantity,
+          }}
+          price={item.price.toLocaleString()}
+          discountedPrice={item.discounted_price.toLocaleString()}
+          currency={item.currency}
+        />
       ))}
     </div>
   );
