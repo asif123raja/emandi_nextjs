@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import CategoryCard from "@/components/ui/card"; // Adjust the path if needed
-import Card from "@/components/ui/card";
+import Card from "@/components/ui/card"; // Adjust the import path if needed
 
 interface Item {
   id: string;
@@ -25,7 +24,7 @@ const VegetablesPage: React.FC = () => {
     const fetchData = async () => {
       const response = await fetch("/Veg_Fruits.json");
       const data: Item[] = await response.json();
-      const vegetableItems = data.filter(item => item.category === "Vegetable");
+      const vegetableItems = data.filter((item) => item.category === "Vegetable");
       setItems(vegetableItems);
     };
 
@@ -37,7 +36,7 @@ const VegetablesPage: React.FC = () => {
       {items.map((item) => (
         <Card
           key={item.id}
-          image={item.image_url}
+          image_url={item.image_url} // Changed prop to match CardProps
           name={item.name}
           description={item.description}
           itemData={item}
