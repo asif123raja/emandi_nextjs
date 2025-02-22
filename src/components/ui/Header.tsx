@@ -199,43 +199,43 @@ const Header: React.FC = () => {
   };
 
   // Function to check authentication status and seller status
-  // const checkAuth = async () => {
-  //   try {
-  //     const res = await axios.get('/api/users/me');
-  //      //const res2 = await axios.get('/api/users/me'); // Update this with your API endpoint
-  //     console.log("res.data.data",res.data.data);
-  //     if (res.data.data) {
-        
-  //      // Update this with your API endpoint
-  //       setIsAuthenticated(true)
-  //       console.log("isauthinticated hgjgfjg i am here asif",isAuthenticated) // User is authenticated
-  //       setIsSeller(res.data.data); // Set seller status based on API response
-  //       console.log("isseller",res.data.data.isSeller)
-  //     } else {
-  //       setIsAuthenticated(false);
-  //       setIsSeller(false);
-  //     }
-  //   } catch {
-  //     setIsAuthenticated(false); // Set to false if an error occurs
-  //     setIsSeller(false); // Ensure seller status is also false
-  //   }
-  // };
-          const checkAuth = useCallback(async () => {
+  const checkAuth = async () => {
     try {
-      const res = await axios.get("/api/users/me");
-      console.log("res.data.data", res.data.data);
+      const res = await axios.get('/api/users/me');
+       //const res2 = await axios.get('/api/users/me'); // Update this with your API endpoint
+      console.log("res.data.data",res.data.data);
       if (res.data.data) {
-        setIsAuthenticated(true);
-        setIsSeller(res.data.data.isSeller); // Assuming API returns isSeller
+        
+       // Update this with your API endpoint
+        setIsAuthenticated(true)
+        console.log("isauthinticated hgjgfjg i am here asif",isAuthenticated) // User is authenticated
+        setIsSeller(res.data.data); // Set seller status based on API response
+        console.log("isseller",res.data.data.isSeller)
       } else {
         setIsAuthenticated(false);
         setIsSeller(false);
       }
     } catch {
-      setIsAuthenticated(false);
-      setIsSeller(false);
+      setIsAuthenticated(false); // Set to false if an error occurs
+      setIsSeller(false); // Ensure seller status is also false
     }
-  }, []);
+  };
+  //         const checkAuth = useCallback(async () => {
+  //   try {
+  //     const res = await axios.get("/api/users/me");
+  //     console.log("res.data.data", res.data.data);
+  //     if (res.data.data) {
+  //       setIsAuthenticated(true);
+  //       setIsSeller(res.data.data.isSeller); // Assuming API returns isSeller
+  //     } else {
+  //       setIsAuthenticated(false);
+  //       setIsSeller(false);
+  //     }
+  //   } catch {
+  //     setIsAuthenticated(false);
+  //     setIsSeller(false);
+  //   }
+  // }, []);
           
 
   // Call checkAuth on component mount
