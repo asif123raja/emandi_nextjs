@@ -75,12 +75,12 @@
 
 import React, { useEffect } from "react";
 import { useCart } from "@/context/CartContext";
-import { TotalAmountProvider } from "@/context/TotalAmountContext"; 
+import { useTotalAmount } from "@/context/TotalAmountContext"; // ✅ Import the correct hook
 import { useRouter } from "next/navigation";
 
 const CheckoutPage: React.FC = () => {
   const { cartItems } = useCart();
-  const { totalAmount, setTotalAmount } = useTotalAmount();
+  const { totalAmount, setTotalAmount } = useTotalAmount(); // ✅ Correctly using the context
   const router = useRouter();
 
   // Calculate the total price
@@ -135,4 +135,3 @@ const CheckoutPage: React.FC = () => {
 };
 
 export default CheckoutPage;
-
