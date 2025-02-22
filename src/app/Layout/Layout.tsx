@@ -23,8 +23,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
 {/*         <link rel="icon" href="/favicon.ico" /> */}
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
+        <title>{metadata.title ?? "Default Title"}</title>
+        <meta name="description" content={metadata.description ?? "Default Description"} />
       </head>
       <body className={inter.className}>
         <CartProvider>
