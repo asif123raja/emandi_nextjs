@@ -48,9 +48,9 @@ const Footer: React.FC = () => {
       <div className="mt-6 text-center border-t border-white pt-4">
         <h4 className="text-sm font-semibold">Contributors:</h4>
         <div className="flex justify-center space-x-2">
-          <span className="text-sm">John Doe</span>
-          <span className="text-sm">Jane Smith</span>
-          <span className="text-sm">Alice Johnson</span>
+          <span className="text-sm">Md Asiful Ameen</span>
+          <span className="text-sm">& Teams</span>
+          
         </div>
       </div>
 
