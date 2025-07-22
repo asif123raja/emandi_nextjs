@@ -79,9 +79,9 @@ export async function POST(request: NextRequest) {
     // 3. Prompt Construction
     let prompt = "";
     if (foodInsights) {
-      prompt = `Provide a recipe based on these ingredients: ${foodInsights}.`;
+      prompt = `Provide a recipe with bullet points based on these ingredients: ${foodInsights}.`;
     } else if (question) {
-      prompt = `Provide a recipe for this question: ${question}`;
+      prompt = `Provide a recipe with bullet points for this question: ${question}`;
     }
     console.log("Generated Prompt:", prompt);
 

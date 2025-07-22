@@ -22,11 +22,16 @@ export async function GET(request: NextRequest) {
         if (!seller) {
             throw new Error("Seller not found");
         }
-        const isSeller = !!seller;
+        // const isSeller = !!seller;
+        const role="Seller";
         // console.log("here is the fact",isSeller);
         return NextResponse.json({
             message: "Seller found",
-            data: isSeller
+            data: {
+                id: seller._id,
+                email: seller.email,// Include necessary fields
+                role: role,       // Adding role dynamically
+            }
         });
 
     } catch (error: any) {
